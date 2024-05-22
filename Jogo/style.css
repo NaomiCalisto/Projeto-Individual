@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Press Start 2P';
+  background-image: url(./assets/img/Home.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Header */
+.header {
+  background-color: black;
+  border-bottom: 2px solid;
+}
+
+.header .container {
+  display: flex;
+  width: 80%;
+  margin-left: 30px;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.header a {
+  text-decoration: none;
+  color: white;
+}
+
+.agora {
+  font-weight: 800;
+}
+
+.navbar {
+  width: 370px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  color: white;
+  font-size: 15px;
+  margin-right: -230px;
+}
+
+.marca {
+  color: white;
+  width: fit-content;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+
+/* Jogo */
+.game-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.score-board {
+  background-color: black;
+  color: white;
+  font-size: 24px;
+  width: 50vw;
+  padding-top: 15px;
+  padding-left: 20px;
+}
+
+.game-area {
+  display: flex;
+  justify-content: center;
+  width: 50vw;
+  height: 628px;
+  background-color: black;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+}
+
+.bloco-start {
+  display: flex;
+  justify-content: center;
+  background-color: #000d3d8a;
+  height: 500px;
+  width: 500px;
+  padding: 80px;
+  color: white;
+  position: absolute;
+}
+
+.bloco-tryagain {
+  display: flex;
+  display: none;
+  justify-content: center;
+  background-color: #000d3d8a;
+  height: 500px;
+  width: 500px;
+  padding: 80px;
+  color: white;
+  position: absolute;
+}
+
+.final-score{
+  font-size: 24px;
+}
+
+
+.trash {
+  background-image: url(./assets/img/parafusos.png);
+  background-size: cover;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  cursor: auto;
+}
+
+
+/* Botão */
+.bloco-start .botao {
+  align-self: baseline;
+  background: white;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  font-size: 30px;
+  padding: 20px;
+  font-family: "Press Start 2P", cursive;
+  text-decoration: none;
+  color: black;
+  box-shadow: inset -4px -4px 0px 0px gray;
+  margin-top: 15px;
+}
+
+.bloco-tryagain .botao {
+  align-self: baseline;
+  background: white;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  font-size: 30px;
+  padding: 20px;
+  font-family: "Press Start 2P", cursive;
+  text-decoration: none;
+  color: black;
+  box-shadow: inset -4px -4px 0px 0px gray;
+  margin-top: 220px;
+}
+
+.botao:hover,
+.botao:focus {
+  background: white;
+  box-shadow: inset -6px -6px 0px 0px gray;
+}
+
+.botao:active {
+  box-shadow: inset 4px 4px 0px 0px gray;
+}
+
+.botao:before {
+  top: -6px;
+  left: 0;
+  border-top: 6px black solid;
+  border-bottom: 6px gray solid;
+}
+
+.botao:after {
+  left: -6px;
+  top: 0;
+  border-left: 6px gray solid;
+  border-right: 6px black solid;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
