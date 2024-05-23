@@ -34,7 +34,7 @@ body {
 }
 
 .navbar {
-  width: 370px;
+  width: 500px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -113,10 +113,10 @@ body {
 
 
 .trash {
-  background-image: url(./assets/img/parafusos.png);
+  background-image: url(../Index/assets/img/satelite.png);
   background-size: cover;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   position: absolute;
   cursor: auto;
 }

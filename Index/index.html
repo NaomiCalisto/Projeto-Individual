@@ -24,6 +24,9 @@
                     <a href="#">Início</a>
                 </li>
                 <li>
+                    <a href="#">Criadora</a>
+                </li>
+                <li>
                     <a href="../Jogo/jogo.html">Jogo</a>
                 </li>
                 <li>|</li>
@@ -50,37 +53,30 @@
 
     <!-- Lixos espaciais -->
     <div class="lixos">
+        <h1 class="titulo">Saiba mais sobre os lixos espaciais mais encontrados:</h1>
+
         <div class="container">
-            <div class="titulo">
-                <h1>Saiba mais sobre os lixos espaciais mais encontrados:</h1>
-            </div>
+
             <div class="carrossel">
-                <div class="seta">
-                    <img src="./assets/img/seta.png" width="200px">
-                </div>
-                <div class="img">
-                    <img src="./assets/img/foguete.png" width="300px">
-
-                </div>
-                <div class="img">
-                    <img src="./assets/img/satelite.png" width="300px">
-
-                </div>
-                <div class="img">
-                    <img src="./assets/img/parafusos.png" width="300px">
-
-                </div>
-                <!-- <div class="img">
-                    <img src="./assets/img/robo.png" width="300px">
-
-                </div> -->
-                <div class="seta">
-                    <img src="./assets/img/seta.png" width="200px">
+                <div class="carousel-wrapper">
+                    <div class="button prev" onclick="moveSlide(-1)"></div>
+                    <div class="carousel">
+                        <div class="carousel-container">
+                            <img class="carousel-item" src="./assets/img/foguete.png" alt="">
+                            <img class="carousel-item" src="./assets/img/robo.png" alt="">
+                            <img class="carousel-item" src="./assets/img/satelite.png" alt="">
+                            <img class="carousel-item" src="./assets/img/parafusos.png" alt="">
+                        </div>
+                    </div>
+                    <div class="button next" onclick="moveSlide(1)"></div>
                 </div>
             </div>
+
+
         </div>
     </div>
 
+    <!-- Sobre -->
     <div class="sobre">
         <div class="container">
             <h1>Astro Cleanup</h1>
@@ -120,20 +116,28 @@
 
     <!-- Jogo -->
     <div class="jogo">
-        <h1>Que tal combater esse desafio você mesmo?</h1>
+        <h1 class="titulo">Que tal combater esse desafio você mesmo?</h1>
         <div class="container">
             <div class="nave-espacial"></div>
 
             <div class="container-menor">
-                <p>Lorem ipsum dolor sit amet. Et doloremque voluptatibus et consequuntur facere qui accusantium quia non labore atque! Lorem ipsum dolor sit amet. Et doloremque voluptatibus et consequuntur facere qui accusantium quia non labore atque!</p>
+                <h1>TRASH DESTROYER</h1>
+                <p>Lorem ipsum dolor sit amet. Et doloremque voluptatibus et consequuntur facere qui accusantium quia
+                    non labore atque! Lorem ipsum dolor sit amet. Et doloremque voluptatibus et consequuntur facere qui
+                    accusantium quia non labore atque!</p>
 
-                <a href="../Jogo/jogo.html" class="botao">JOGAR</a>                
+                <a href="../Jogo/jogo.html" class="botao">JOGAR</a>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
     <div class="footer">
+        <div class="criadora">
+            <p>Gostaria de conhecer mais sobre a criadora? Acesse aqui!</p>
+            <a href="#" class="botao">Conheça-me</a>
+        </div>
+
         <div class="container">
             <div class="planeta"></div>
             <div class="ods">
@@ -147,10 +151,27 @@
                     <img src="./assets/img/ods/SDG-14.svg" alt="">
                     <img src="./assets/img/ods/SDG-15.svg" alt="">
                 </div>
-                
+
             </div>
         </div>
     </div>
 </body>
 
 </html>
+
+<script>
+    const container = document.querySelector('.carousel-container');
+    const slides = Array.from(container.children);
+    const slideWidth = slides[0].offsetWidth + 20;
+
+    function moveSlide(direction) {
+        if (direction === 1) {
+            container.appendChild(container.firstElementChild);
+        } else {
+            container.insertBefore(container.lastElementChild, container.firstElementChild);
+        }
+
+        container.style.transition = 'none';
+        container.style.transform = 'none';
+    }
+</script>
