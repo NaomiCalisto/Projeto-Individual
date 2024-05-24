@@ -41,7 +41,7 @@
             <div class="bloco-tryagain" id="bloco-tryagain">
                 <div class="bloco">
                     <div class="final-score">SCORE:<span id="final-score"></span></div>
-
+                    
                     <div class="botao" onclick="startGame()">TRY AGAIN</div>
                 </div>
             </div>
@@ -141,7 +141,7 @@
                 blocoTryagain.style.display = 'block';
                 finalScore.innerHTML = `<span>${scoreboard[scoreboard.length - 1]}</span>`;
                 updateScoreBoard(); // Atualiza a scoreboard
-            }, 30000); // 30 segundos
+            }, 10000); // 30 segundos
         }
     </script>
 </body>

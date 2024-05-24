@@ -129,6 +129,14 @@ body {
   padding: 80px;
   color: white;
   position: absolute;
+  align-items: center;
+}
+
+.bloco-tryagain .bloco{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .final-score{
@@ -147,7 +155,6 @@ body {
 
 /* Botão */
 .bloco-start .botao {
-  align-self: baseline;
   background: white;
   display: inline-block;
   position: relative;
@@ -162,7 +169,6 @@ body {
 }
 
 .bloco-tryagain .botao {
-  align-self: baseline;
   background: white;
   display: inline-block;
   position: relative;
