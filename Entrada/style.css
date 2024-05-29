@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Press Start 2P';
-    background-image: url(./assets/img/Home.svg);
+    background-image: url(../Index/assets/img/Home.svg);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -13,9 +13,8 @@ body {
 .header {
     background-color: black;
     border-bottom: 2px solid;
-    position: fixed;
+    /* position: fixed; */
     width: 100%;
-    z-index: 2;
 }
 
 .header .container {
@@ -37,7 +36,7 @@ body {
 }
 
 .navbar {
-    width: 500px;
+    width: 475px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -58,61 +57,54 @@ body {
     margin: 0;
 }
 
-/* Banner */
-.banner {
+/* Bloco */
+.bloco {
     display: flex;
-    height: 695px;
+    justify-content: flex-end;
 }
 
-.banner .container {
+.bloco .container {
+    background-image: url(./assets/img/borda\ lateral.png);
+    background-size: cover;
+    background-color: white;
     display: flex;
-    width: 1000px;
-    padding-top: 215px;
-    padding-left: 50px;
-    color: white;
-    flex-direction: column;
-}
-
-.frase {
-    color: white;
-    font-size: 30px;
-    margin-bottom: 20px;
-}
-
-.area {
-    display: flex;
-    flex-direction: row;
-}
-
-.area p {
-    align-self: center;
-    margin-left: 50px;
-    width: fit-content;
-}
-
-/* Lixos */
-.lixos {
-    display: flex;
-    height: 800px;
-    flex-direction: column;
+    width: 75%;
     align-items: center;
+    flex-direction: column;
 }
 
-.lixos .titulo {
-    text-align: center;
-    color: white;
+.mensagem {
+    background-image: url(./assets/img/mensagem.png);
+    background-size: cover;
+    position: absolute;
+    /* border: red solid; */
+    width: 990px;
+    height: 300px;
+    margin-left: 15px;
+    margin-top: 50px;
+    z-index: 1;
 }
 
-.lixos .container {
+.saudacoes {
+    width: 860px;
+    margin-left: 40px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    z-index: 2;
+}
+
+
+/* Carrosel */
+.titulo {
     display: flex;
-    justify-content: center;
+    margin-top: 50px;
 }
 
-/* Carrossel */
 .carrossel {
-    height: 500px;
+    height: 300px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    margin-left: 40px;
 }
 
 .carousel-wrapper {
@@ -121,7 +113,7 @@ body {
 
 .carousel {
     display: flex;
-    width: 1230px;
+    width: 860px;
     /* 3 items * (100px + 20px margin) */
     overflow: hidden;
     margin: 0 auto;
@@ -136,11 +128,10 @@ body {
     background-color: #00061c83;
     margin-right: 20px;
     flex: 0 0 100px;
-    height: 410px;
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 1s;
 }
 
 .carousel-item:hover{
@@ -148,9 +139,8 @@ body {
     transition: 1s;
 }
 
-
 .button {
-    color: white;
+    color: black;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -165,6 +155,7 @@ body {
 
 .prev {
     left: -80px;
+    /* rotate: 180deg; */
     /* Adjust as needed */
 }
 
@@ -173,81 +164,45 @@ body {
     /* Adjust as needed */
 }
 
-/* Descricao */
-.descricao {
-    display: none;
-    border: red solid;
-    width: 1000px;
-    height: 100px;
-    position: absolute;
-    top: 175%;
-}
 
-
-/* Sobre */
-.sobre {
-    display: flex;
-    height: 590px;
-    flex-direction: column;
-}
-
-.sobre .container {
-    display: flex;
-    flex-direction: column;
-    width: 830px;
-    align-self: flex-end;
-    margin-right: 50px;
-    line-height: 20px;
-    margin-top: 30px;
-}
-
-.sobre .container h1 {
-    justify-content: flex-end;
-    display: flex;
-    color: white;
-    margin-bottom: 30px;
-}
-
-.sobre .container p {
-    color: white;
-    text-align: justify;
-    font-size: 12px;
-}
-
-.sobre .container ul {
-    color: white;
-    text-align: justify;
-    font-size: 12px;
-}
-
-.sobre .eddie-acenando {
-    background-image: url(./assets/gif/Eddie\ acenando.gif);
-    width: 550px;
-    height: 550px;
+/* Jogo */
+.jogo{
+    background-image: url(./assets/img/borda\ completa.png);
     background-size: cover;
-    position: absolute;
-    margin-top: 60px;
-    z-index: 1;
+    margin-top: 100px;
+    display: flex;
+    width: 750px;
+    height: 500px;
+    margin-left: 40px;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgray;
+}
+
+.jogo .container{
+    background-image: none;
+    display: flex;
+    width: 368px;
+    height: 350px;
+    background-color: lightgray;
+}
+
+.jogo .container h1{
+    text-align: center;
+}
+
+.jogo .container p{
+    text-align: justify;
 }
 
 
 /* Footer */
 .footer {
     display: flex;
-    height: 665px;
     flex-direction: column;
     color: white;
     justify-content: flex-end;
-}
-
-.criadora {
-    background-color: #00061c83;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    color: white;
-    height: 170px;
+    justify-self: flex-end;
 }
 
 .footer .container {
@@ -255,13 +210,11 @@ body {
     flex-direction: row;
     justify-content: center;
     background-color: black;
-    height: 60%;
     align-items: center;
 }
 
 .redes {
     display: flex;
-    /* border: solid red; */
     height: 200px;
     flex-direction: column;
     justify-content: space-between;
@@ -270,11 +223,11 @@ body {
 
 .social {
     background-color: white;
-    width: 50px; 
-    height: 50px; 
+    width: 50px;
+    height: 50px;
 }
 
-.planeta-ods-redes{
+.planeta-ods-redes {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -283,7 +236,7 @@ body {
 }
 
 .planeta {
-    background-image: url(./assets/gif/open.gif);
+    background-image: url(../Index/assets/gif/open.gif);
     background-size: cover;
     height: 400px;
     width: 500px;
@@ -311,38 +264,7 @@ body {
 
 
 /* Botão */
-.banner .botao {
-    display: flex;
-    align-self: baseline;
-    background: white;
-    display: inline-block;
-    position: relative;
-    text-align: center;
-    font-size: 30px;
-    padding: 20px;
-    font-family: "Press Start 2P", cursive;
-    text-decoration: none;
-    color: black;
-    box-shadow: inset -4px -4px 0px 0px gray;
-}
-
-.jogo .container .container-menor .botao {
-    align-self: baseline;
-    background: white;
-    display: inline-flex;
-    position: relative;
-    text-align: center;
-    font-size: 30px;
-    padding: 20px;
-    font-family: "Press Start 2P", cursive;
-    text-decoration: none;
-    color: black;
-    box-shadow: inset -4px -4px 0px 0px gray;
-    margin-top: 15px;
-    align-self: center;
-}
-
-.footer .criadora .botao {
+.jogo .container .botao {
     align-self: baseline;
     background: white;
     display: inline-flex;

@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Press Start 2P';
-    background-image: url(../Index/assets/img/Home.svg);
+    background-image: url(./assets/img/Home.svg);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -13,7 +13,6 @@ body {
 .header {
     background-color: black;
     border-bottom: 2px solid;
-    position: fixed;
     width: 100%;
 }
 
@@ -67,7 +66,7 @@ body {
 
 /* Eddie */
 .eddie {
-    background-image: url(../Index/assets/gif/Eddie\ dançando.gif);
+    background-image: url(./assets/gif/Eddie\ dançando.gif);
     background-size: cover;
     display: flex;
     width: 500px;

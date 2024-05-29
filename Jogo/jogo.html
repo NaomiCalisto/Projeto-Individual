@@ -15,10 +15,19 @@
 
             <ul class="navbar">
                 <li>
-                    <a href="#"></a>
+                    <a href="../Entrada/entrada.html">Home</a>
                 </li>
                 <li class="agora">
                     <a href="#">Jogo</a>
+                </li>
+                <li>
+                    <a href="../Scoreboard/scoreboard.html">Scoreboard</a>
+                </li>
+                <li>
+                    |
+                </li>
+                <li>
+                    <a href="../Index/index.html">Sair</a>
                 </li>
             </ul>
         </div>
@@ -50,6 +59,11 @@
         <div class="score-board">
             <p>SCOREBOARD:</p>
             <div id="score-board"></div>
+            <div class="dashboard">
+                <a href="../Scoreboard/scoreboard.html">
+                    <div class="trofeu"></div>
+                </a>
+            </div>
         </div>
 
     </div>
@@ -113,6 +127,7 @@
             // Limpe todos os meteoros da área do jogo
             gameArea.innerHTML = '';
             // Resete a pontuação
+            score = 0;
             scoreDisplay.textContent = score;
         }
 
@@ -129,6 +144,7 @@
         // Função para iniciar o jogo
         function startGame() {
             resetGame();
+            // gameArea.style.cursor = 'url(./assets/img/ponteiro.cur), auto';
             blocoTryagain.style.display = 'none';
             blocoStart.style.display = 'none';
             gameInterval = setInterval(createMeteor, 500); // Cria um meteoro a cada 0.5 segundos
@@ -137,11 +153,10 @@
             gameTimeout = setTimeout(() => {
                 scoreboard.push(score);
                 resetGame();
-                score = 0;
                 blocoTryagain.style.display = 'block';
-                finalScore.innerHTML = `<span>${scoreboard[scoreboard.length - 1]}</span>`;
+                finalScore.innerHTML = `${scoreboard[scoreboard.length - 1]}`;
                 updateScoreBoard(); // Atualiza a scoreboard
-            }, 10000); // 30 segundos
+            }, 60000); // 60 segundos
         }
     </script>
 </body>

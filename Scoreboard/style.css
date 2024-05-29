@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Press Start 2P';
-  background-image: url(./assets/img/Home.svg);
+  background-image: url(../Index/assets/img/Home.svg);
   background-size: cover;
   background-repeat: no-repeat;
   /* cursor: url('./assets/img/ponteiro.cur'), auto; */
@@ -57,123 +57,59 @@ body {
   margin: 0;
 }
 
-/* Jogo */
-.jogo {
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-  justify-content: center;
-}
 
-.game-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  border: solid white;
-  border-top: 0px;
-  border-bottom: 0px;
-}
-
-.score-board {
-  align-self: center;
-  display: flex;
-  background-color: black;
-  border: solid white;
-  height: 300px;
-  width: 200px;
-  color: white;
-  font-size: 14px;
-  margin-left: 50px;
-  padding: 10px;
-  flex-direction: column;
-  line-height: 20px;
-}
-
+/* Dashboard */
 .dashboard {
   display: flex;
-  position: absolute;
-  width: 185px;
-  height: 285px;
-  align-items: flex-end;
-  justify-content: flex-end;
-}
-
-.trofeu {
-  background-image: url(./assets/img/trofeu.png);
-  background-size: cover;
-  width: 50px;
-  height: 50px;
-}
-
-.trofeu:hover{
-  transform: translateY(-20px);
-  transition: 1s;
-}
-
-
-.score-display {
-  background-color: black;
-  color: white;
-  font-size: 24px;
-  width: 50vw;
-  padding-top: 15px;
-  padding-left: 20px;
-}
-
-.game-area {
-  display: flex;
+  height: 667px;
   justify-content: center;
-  width: 50vw;
-  height: 628px;
-  background-color: black;
-  position: relative;
-  overflow: hidden;
   align-items: center;
 }
 
-.bloco-start {
+.dashboard .container {
   display: flex;
-  justify-content: center;
-  background-color: #000d3d8a;
-  height: 500px;
-  width: 500px;
-  padding: 80px;
-  color: white;
-  position: absolute;
-}
-
-.bloco-tryagain {
-  display: flex;
-  display: none;
-  justify-content: center;
-  background-color: #000d3d8a;
-  height: 500px;
-  width: 500px;
-  padding: 80px;
-  color: white;
-  position: absolute;
+  background-color: white;
+  /* border: red solid; */
+  width: 1000px;
+  height: 600px;
   align-items: center;
+  flex-direction: row;
+  padding: 50px;
+  justify-content: space-between;
 }
 
-.bloco-tryagain .bloco {
+.global-usuario {
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  align-items: center;
-}
-
-.final-score {
-  font-size: 24px;
-}
-
-.trash {
-  background-image: url(./assets/img/satelite.png);
-  background-size: cover;
+  height: 250px;
   width: 100px;
-  height: 100px;
-  position: absolute;
+  justify-content: space-between;
+}
+
+.global {
+  background-image: url(./assets/img/mundial.png);
+  background-size: cover;
+  width: 110px;
+  height: 110px;
   cursor: pointer;
+  padding: 5px;
+}
+
+.usuario{
+  background-image: url(./assets/img/usuario.png);
+  background-size: cover;
+  width: 110px;
+  height: 110px;
+  cursor: pointer;
+  border-bottom: black solid 5px;
+  padding: 5px;
+}
+
+.grafico {
+  display: flex;
+  width: 750px;
+  height: 500px;
+  align-items: center;
 }
 
 
