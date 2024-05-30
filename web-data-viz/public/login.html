@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/login-style.css">
+
+    <!-- icon -->
+    <!-- <link rel="shortcut icon" href="./images/icon.ico"> -->
+
+    <title>Astro Cleanup</title>
+</head>
+
+<body>
+    <!-- header -->
+    <div class="header">
+        <div class="container">
+            <a href="index.html">
+                <h1 class="marca">Astro Cleanup</h1>
+            </a>
+
+            <ul class="navbar">
+                <li>
+                    <a href="index.html">Início</a>
+                </li>
+                <li>
+                    <a href="index.html #sobre">Sobre</a>
+                </li>
+                <li>
+                    <a href="index.html #criadora">Criadora</a>
+                </li>
+                <li>|</li>
+                <li class="agora">
+                    <a href="#">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- Login -->
+    <div class="login">
+
+        <div class="eddie"></div>
+
+        <div class="container">
+            <h1>ENTRE</h1>
+            <div class="conteudo">
+                <div class="email">
+                    E-mail: <br>
+                    <input type="text" id="inp_email">
+                </div>
+
+                <div class="senha">
+                    Senha: <br>
+                    <input type="text" id="inp_senha">
+                </div>
+
+                <a href="#" class="botao" onclick="entrar()">ENTRAR</a>
+
+                <div class="row">
+                    <a style="text-decoration: none;" href="index.html">
+                        <div class="voltar">
+                            <p>
+                                < </p>
+                        </div>
+                    </a>
+                    <span>
+                        Não possue uma conta? <a href="cadastro.html">Cadastre-se!</a>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+<script>
+    function entrar() {
+        var emailVar = inp_email.value;
+        var senhaVar = inp_senha.value;
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id
+
+                    window.location = "./home.html";
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+</script>

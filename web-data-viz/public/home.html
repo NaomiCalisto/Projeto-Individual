@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/home-style.css">
+
+    <!-- icon -->
+    <!-- <link rel="shortcut icon" href="./images/icon.ico"> -->
+
+    <title>Astro Cleanup</title>
+</head>
+
+<body>
+    <!-- header -->
+    <div class="header">
+        <div class="container">
+            <a href="index.html" onclick="apagarSession()">
+                <h1 class="marca">Astro Cleanup</h1>
+            </a>
+
+            <ul class="navbar">
+                <li class="agora">
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="jogo.html">Jogo</a>
+                </li>
+                <li>
+                   <a href="scoreboard.html">Scoreboard</a> 
+                </li>
+                <li>
+                    |
+                </li>
+                <li>
+                    <a href="index.html" onclick="apagarSession()">Sair</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Bloco -->
+    <div class="bloco">
+        <div class="container">
+            <div class="mensagem"></div>
+
+            <div class="saudacoes">
+                <p>Olá Patrulheiro(a) <span id="usuario"></span>!</p>
+
+                <p>Que tal ver algumas interessantíssimas fontes sobre um espaço mais sutentável? <br>
+                    Navegue por filmes, livros e até mesmo notícias</p>
+            </div>
+
+            <!-- Carroseis -->
+            <div class="carrossel">
+                <div class="titulo">
+                    <p>Filmes</p>
+                </div>
+
+                <div class="carousel-wrapper">
+                    <div class="button prev" onclick="moveSlide(-1)"><</div>
+                    <div class="carousel">
+                        <div class="carousel-container">
+                            <img class="carousel-item" src="" alt="">
+                            <img class="carousel-item" src="" alt="">
+                            <img class="carousel-item" src="" alt="">
+                            <img class="carousel-item" src="" alt="">
+                            <img class="carousel-item" src="" alt="">
+                            <img class="carousel-item" src="" alt="">
+                            <img class="carousel-item" src="" alt="">
+                            <img class="carousel-item" src="" alt="">
+                        </div>
+                    </div>
+                    <div class="button next" onclick="moveSlide(1)">></div>
+                </div>
+            </div>
+
+
+            <div class="carrossel">
+                <div class="titulo">
+                    <p>Livros</p>
+                </div>
+                <div class="carousel-wrapper">
+                    <div class="button prev" onclick="moveSlide(-1)"><</div>
+                    <div class="carousel">
+                        <div class="carousel-container">
+                            <img class="carousel-item" src="" alt="">
+                            <img class="carousel-item" src="" alt="">
+                            <img class="carousel-item" src="" alt="">
+                            <img class="carousel-item" src="" alt="">
+                            <img class="carousel-item" src="" alt="">
+                            <img class="carousel-item" src="" alt="">
+                            <img class="carousel-item" src="" alt="">
+                            <img class="carousel-item" src="" alt="">
+                        </div>
+                    </div>
+                    <div class="button next" onclick="moveSlide(1)">></div>
+                </div>
+            </div>
+
+
+            <div class="carrossel">
+                <div class="titulo">
+                    <p>Notícias</p>
+                </div>
+                <div class="carousel-wrapper">
+                    <div class="button prev" onclick="moveSlide(-1)"><</div>
+                    <div class="carousel">
+                        <div class="carousel-container">
+                            <img class="carousel-item" src="" alt="">
+                            <img class="carousel-item" src="" alt="">
+                            <img class="carousel-item" src="" alt="">
+                            <img class="carousel-item" src="" alt="">
+                            <img class="carousel-item" src="" alt="">
+                            <img class="carousel-item" src="" alt="">
+                            <img class="carousel-item" src="" alt="">
+                            <img class="carousel-item" src="" alt="">
+                        </div>
+                    </div>
+                    <div class="button next" onclick="moveSlide(1)">></div>
+                </div>
+            </div>
+
+            <div class="jogo">
+                <div class="container">
+                    <h1>TRASH DESTROYER</h1>
+                    <p>Que tal tentar combater esse desafio você mesmo?</p>
+                    <p>Pontue o quanto puder e fique entre os melhores destruindo os lixos espaciais!</p>
+                    
+
+                    <a href="jogo.html" class="botao">JOGAR</a>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="container-menor">
+                <div class="planeta-ods-redes">
+                    <div class="redes">
+                        <div class="social"><img src="" alt=""></div>
+                        <div class="social"><img src="" alt=""></div>
+                        <div class="social"><img src="" alt=""></div>
+                    </div>
+                    <div class="planeta"></div>
+                    <div class="ods">
+                        <p>Esse projeto promove:</p>
+                        <div class="row">
+                            <img src="./assets/img/ods/SDG-12.svg" alt="">
+                            <img src="./assets/img/ods/SDG-13.svg" alt="">
+                        </div>
+
+                        <div class="row">
+                            <img src="./assets/img/ods/SDG-14.svg" alt="">
+                            <img src="./assets/img/ods/SDG-15.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    var usuario = sessionStorage.NOME_USUARIO
+    nomeUsuario.innerHTML = usuario
+
+
+    const container = document.querySelector('.carousel-container');
+    const slides = Array.from(container.children);
+    const slideWidth = slides[0].offsetWidth + 20;
+
+    function moveSlide(direction) {
+        if (direction === 1) {
+            container.appendChild(container.firstElementChild);
+        } else {
+            container.insertBefore(container.lastElementChild, container.firstElementChild);
+        }
+
+        container.style.transition = 'none';
+        container.style.transform = 'none';
+    }
+
+    function apagarSession() {
+        sessionStorage.clear();
+    }
+</script>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/cadastro-style.css">
+
+    <!-- icon -->
+    <!-- <link rel="shortcut icon" href="./images/icon.ico"> -->
+
+    <title>Astro Cleanup</title>
+</head>
+
+<body>
+    <!-- header -->
+    <div class="header">
+        <div class="container">
+            <a href="">
+                <h1 class="marca">Astro Cleanup</h1>
+            </a>
+
+            <ul class="navbar">
+                <li>
+                    <a href="index.html">Início</a>
+                </li>
+                <li>
+                    <a href="index.html #sobre">Sobre</a>
+                </li>
+                <li>
+                    <a href="index.html #criadora">Criadora</a>
+                </li>
+                <li>|</li>
+                <li>
+                    <a href="login.html">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- Login -->
+    <div class="cadastro">
+
+        <div class="eddie"></div>
+
+        <div class="container">
+            <h1>CADASTRE-SE</h1>
+            <div class="conteudo">
+                <div class="nomes">
+                    <div class="nome">
+                        Nome:
+                        <input type="text" id="inp_nome">
+                    </div>
+
+                    <div class="sobrenome">
+                        Sobrenome:
+                        <input type="text" id="inp_sobrenome">
+                    </div>
+                </div>
+
+                <div class="email">
+                    E-mail:
+                    <input type="text" id="inp_email">
+                </div>
+
+                <div class="senhas">
+
+                    <div class="senha">
+                        Senha:
+                        <input type="text" id="inp_senha">
+                    </div>
+
+                    <div class="confSenha">
+                        Confirmar senha:
+                        <input type="text" id="inp_confSenha">
+                    </div>
+                </div>
+
+                <a href="#" class="botao" onclick="cadastrar()">CADASTRO</a>
+
+                <div class="row">
+                    <a style="text-decoration: none;" href="index.html">
+                        <div class="voltar">
+                            <p>
+                                < </p>
+                        </div>
+                    </a>
+
+                    <span>
+                        Já possue uma conta? <a href="login.html">Entre!</a>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+<script>
+    function cadastrar() {
+
+        var nomeVar = inp_nome.value;
+        var sobrenomeVar = inp_sobrenome.value;
+        var emailVar = inp_email.value;
+        var senhaVar = inp_senha.value;
+        var confSenhaVar = inp_confSenha.value;
+
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                sobrenomeServer: sobrenomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    window.location = "./login.html";
+                    limparFormulario();
+
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+
+            });
+
+        return false;
+    }
+
+</script>

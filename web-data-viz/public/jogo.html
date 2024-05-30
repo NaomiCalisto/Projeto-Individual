@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ptbr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trash Destroyer</title>
+    <link rel="stylesheet" href="./css/jogo-style.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <a href="index.html" onclick="apagarSession()">
+                <h1 class="marca">Astro Cleanup</h1>
+            </a>
+
+            <ul class="navbar">
+                <li>
+                    <a href="home.html">Home</a>
+                </li>
+                <li class="agora">
+                    <a href="#">Jogo</a>
+                </li>
+                <li>
+                    <a href="scoreboard.html">Scoreboard</a>
+                </li>
+                <li>
+                    |
+                </li>
+                <li>
+                    <a href="index.html" onclick="apagarSession()">Sair</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="jogo">
+
+        <div id="game-container" class="game-container">
+            <div class='score-display'>SCORE:<span id="score">0</span></div>
+            <div id="game-area" class="game-area"></div>
+
+            <div class="bloco-start" id="bloco-start">
+                <div class="bloco">
+                    <h1>TRASH DESTROYER</h1>
+                    <p>Venha nos ajudar a minimizar esse impacto! Destrua os lixos espaciais no tempo determinado</p>
+                    <p>Boa sorte explorador!</p>
+                    <div class="botao" onclick="startGame()">START</div>
+                </div>
+            </div>
+            <div class="bloco-tryagain" id="bloco-tryagain">
+                <div class="bloco">
+                    <div class="final-score">SCORE:<span id="final-score"></span></div>
+
+                    <div class="botao" onclick="startGame()">TRY AGAIN</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="score-board">
+            <p>SCOREBOARD:</p>
+            <div id="score-board"></div>
+            <div class="dashboard">
+                <a href="scoreboard.html">
+                    <div class="trofeu"></div>
+                </a>
+            </div>
+        </div>
+
+</body>
+
+</html>
+
+</div>
+
+<script>
+    const gameArea = document.getElementById('game-area');
+    const scoreDisplay = document.getElementById('score');
+    const blocoStart = document.getElementById('bloco-start');
+    const blocoTryagain = document.getElementById('bloco-tryagain');
+    const finalScore = document.getElementById('final-score');
+    const scoreBoardDiv = document.getElementById('score-board');
+
+    let score = 0;
+    let gameInterval;
+    let gameTimeout;
+
+    let scoreboard = []
+
+    // Função para criar um meteoro
+    function createMeteor() {
+        const trash = document.createElement('div');
+        trash.classList.add('trash');
+
+        // Posiciona o meteoro em uma posição aleatória dentro da área do jogo
+        trash.style.top = Math.random() * (gameArea.offsetHeight - 40) + 'px';
+        trash.style.left = Math.random() * (gameArea.offsetWidth - 40) + 'px';
+
+        // Adiciona o meteoro à área do jogo
+        gameArea.appendChild(trash);
+
+        // Define o tempo de vida do meteoro
+        const trashLife = 4000; // 4 segundos
+
+        // Remove o meteoro após o tempo de vida
+        setTimeout(() => {
+            if (trash.parentElement) {
+                trash.remove();
+            }
+        }, trashLife);
+
+        // Adiciona um evento de clique no meteoro
+        trash.addEventListener('click', () => {
+            score += 10;
+            scoreDisplay.textContent = score;
+            trash.remove();
+        });
+    }
+
+    // Função para resetar o jogo
+    function resetGame() {
+        // Pare o intervalo de criação de meteoros se estiver ativo
+        if (gameInterval) {
+            clearInterval(gameInterval);
+        }
+
+        // Pare o timeout do jogo se estiver ativo
+        if (gameTimeout) {
+            clearTimeout(gameTimeout);
+        }
+
+        // Limpe todos os meteoros da área do jogo
+        gameArea.innerHTML = '';
+        // Resete a pontuação
+        score = 0;
+        scoreDisplay.textContent = score;
+    }
+
+    // Função para atualizar a div score-board
+    function updateScoreBoard() {
+        scoreBoardDiv.innerHTML = '';
+        for (let i = 0; i < scoreboard.length; i++) {
+            const scoreItem = document.createElement('div');
+            scoreItem.textContent = `${scoreboard[i]}`;
+            scoreBoardDiv.appendChild(scoreItem);
+        }
+    }
+
+    // Função para iniciar o jogo
+    function startGame() {
+        resetGame();
+        // gameArea.style.cursor = 'url(./assets/img/ponteiro.cur), auto';
+        blocoTryagain.style.display = 'none';
+        blocoStart.style.display = 'none';
+        gameInterval = setInterval(createMeteor, 500); // Cria um meteoro a cada 0.5 segundos
+
+        // Reseta o jogo após 60 segundos
+        gameTimeout = setTimeout(() => {
+            scoreboard.push(score);
+            resetGame();
+            blocoTryagain.style.display = 'block';
+            finalScore.innerHTML = `${scoreboard[scoreboard.length - 1]}`;
+            updateScoreBoard(); // Atualiza a scoreboard
+        }, 60000); // 60 segundos
+    }
+
+    function apagarSession() {
+        sessionStorage.clear();
+    }
+    
+</script>

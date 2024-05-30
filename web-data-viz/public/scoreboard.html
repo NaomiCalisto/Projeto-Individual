@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ptbr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trash Destroyer</title>
+    <link rel="stylesheet" href="./css/scoreboard-style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <a href="index.html" onclick="apagarSession()">
+                <h1 class="marca">Astro Cleanup</h1>
+            </a>
+
+            <ul class="navbar">
+                <li>
+                    <a href="entrada.html">Home</a>
+                </li>
+                <li>
+                    <a href="jogo.html">Jogo</a>
+                </li>
+                <li class="agora">
+                    <a href="#">Scoreboard</a>
+                </li>
+                <li>
+                    |
+                </li>
+                <li>
+                    <a href="index.html" onclick="apagarSession()">Sair</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="dashboard">
+        <div class="container">
+            <div class="global-usuario">
+                <div class="usuario" id="icon-usuario" onclick="mostrar('usuario')"></div>
+                <div class="global" id="icon-global" onclick="mostrar('global')"></div>
+            </div>
+            <div class="grafico">
+                <canvas id="chart-usuario"></canvas>
+                <canvas id="chart-global" style="display: none;"></canvas>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    const usuario = document.getElementById('chart-usuario');
+    const global = document.getElementById('chart-global');
+
+    new Chart(usuario, {
+        type: 'bar',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [20, 11, 7, 10, 3, 4],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    new Chart(global, {
+        type: 'bar',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    const iconUsuario = document.getElementById('icon-usuario');
+    const iconGlobal = document.getElementById('icon-global');
+
+    function mostrar(grafico) {
+        if (grafico === 'usuario') {
+            usuario.style.display = 'block';
+            iconUsuario.style.borderBottom = 'black solid 5px';
+
+            global.style.display = 'none';
+            iconGlobal.style.borderBottom = 'none';
+        } else if (grafico === 'global') {
+            global.style.display = 'block';
+            iconGlobal.style.borderBottom = 'black solid 5px';
+
+            usuario.style.display = 'none';
+            iconUsuario.style.borderBottom = 'none';
+        }
+    }
+
+    function apagarSession() {
+        sessionStorage.clear();
+    }
+</script>

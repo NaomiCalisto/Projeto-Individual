@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Press Start 2P';
+    background-image: url(../assets/img/Home.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Header */
+.header {
+    background-color: black;
+    border-bottom: 2px solid;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+}
+
+.header .container {
+    display: flex;
+    width: 80%;
+    margin-left: 30px;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.header a {
+    text-decoration: none;
+    color: white;
+}
+
+.agora {
+    font-weight: 800;
+}
+
+.navbar {
+    width: 415px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    color: white;
+    font-size: 15px;
+    margin-right: -230px;
+}
+
+.marca {
+    color: white;
+    width: fit-content;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+/* Banner */
+.banner {
+    display: flex;
+    height: 695px;
+}
+
+.banner .container {
+    display: flex;
+    width: 1000px;
+    padding-top: 215px;
+    padding-left: 50px;
+    color: white;
+    flex-direction: column;
+}
+
+.frase {
+    color: white;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.area {
+    display: flex;
+    flex-direction: row;
+}
+
+.area p {
+    align-self: center;
+    margin-left: 50px;
+    width: fit-content;
+}
