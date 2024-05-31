@@ -14,12 +14,13 @@ create table Usuario(
 	nome varchar(45),
 	sobrenome varchar(45),
 	email varchar(45),
-		constraint chkEmail check (email like '%\%%'),
+	senha varchar(45),
 	diaInscricao datetime default current_timestamp);
     
 create table Scoreboard(
 	idScoreboard int primary key auto_increment,
     score int,
+	momento datetime default current_timestamp,
     fkUsuario int,
 		foreign key (fkUsuario) references Usuario(idUsuario));
     

@@ -75,6 +75,8 @@
 </div>
 
 <script>
+    var usuarioVar = sessionStorage.ID_USUARIO 
+
     const gameArea = document.getElementById('game-area');
     const scoreDisplay = document.getElementById('score');
     const blocoStart = document.getElementById('bloco-start');
@@ -82,7 +84,7 @@
     const finalScore = document.getElementById('final-score');
     const scoreBoardDiv = document.getElementById('score-board');
 
-    let score = 0;
+    let scoreVar = 0;
     let gameInterval;
     let gameTimeout;
 
@@ -112,8 +114,8 @@
 
         // Adiciona um evento de clique no meteoro
         trash.addEventListener('click', () => {
-            score += 10;
-            scoreDisplay.textContent = score;
+            scoreVar += 10;
+            scoreDisplay.textContent = scoreVar;
             trash.remove();
         });
     }
@@ -133,8 +135,8 @@
         // Limpe todos os meteoros da área do jogo
         gameArea.innerHTML = '';
         // Resete a pontuação
-        score = 0;
-        scoreDisplay.textContent = score;
+        scoreVar = 0;
+        scoreDisplay.textContent = scoreVar;
     }
 
     // Função para atualizar a div score-board
@@ -157,7 +159,28 @@
 
         // Reseta o jogo após 60 segundos
         gameTimeout = setTimeout(() => {
-            scoreboard.push(score);
+            // Enviar o score atual para o banco de dados
+            fetch("/score/aplicar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    scoreServer: scoreVar, // Enviando o score atual
+                    usuarioServer: usuarioVar // Enviando o id do usuario
+                }),
+            }).then(response => {
+                if (response.ok) {
+                    // Se necessário, processar a resposta aqui
+                    console.log('Score cadastrado com sucesso!');
+                } else {
+                    console.error('Erro ao cadastrar score.');
+                }
+            }).catch(error => {
+                console.error('Erro ao enviar a requisição:', error);
+            });
+
+            scoreboard.push(scoreVar);
             resetGame();
             blocoTryagain.style.display = 'block';
             finalScore.innerHTML = `${scoreboard[scoreboard.length - 1]}`;
@@ -165,8 +188,10 @@
         }, 60000); // 60 segundos
     }
 
+
+
     function apagarSession() {
         sessionStorage.clear();
     }
-    
+
 </script>

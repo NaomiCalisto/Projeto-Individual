@@ -52,9 +52,9 @@ function cadastrar(req, res) {
 
     // Faça as validações dos valores
     if (nome == undefined) {
-        res.status(400).send("Sua razão está undefined!");
+        res.status(400).send("Sua nome está undefined!");
     } else if (sobrenome == undefined) {
-        res.status(400).send("Seu nome Fantasia está undefined!");
+        res.status(400).send("Seu sobrenome Fantasia está undefined!");
     } else if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
