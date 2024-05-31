@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/index-style.css">
+
+    <!-- icon -->
+    <link rel="shortcut icon" href="./assets/img/logo.png">
+
     <title>Astro Cleanup</title>
 </head>
 
@@ -44,108 +48,117 @@
         <div class="container">
             <div class="carrossel">
                 <div class="carousel-wrapper">
-                    <div class="button prev" onclick="moveSlide(-1)"><</div>
-                    <div class="carousel">
-                        <div class="carousel-container">
-                            <img class="carousel-item" src="./assets/img/foguete.png" id="foguete" 
-                            data-descricao="Alguns estágios dos foguetes permanecem em órbitas baixas e voltam a cair logo depois da decolagem, mas os mais altos ficam flutuando no espaço e podem, inclusive, explodir devido aos restos de combustível que contêm, criando milhares de outros fragmentos.">
-                            
-                            <img class="carousel-item" src="./assets/img/robo.png" id="robo" 
-                            data-descricao="Descrição do robô">
+                    <div class="button prev" onclick="moveSlide(-1)">
+                        << /div>
+                            <div class="carousel">
+                                <div class="carousel-container">
+                                    <img class="carousel-item" src="./assets/img/foguete.png" id="foguete"
+                                        data-descricao="Alguns estágios dos foguetes permanecem em órbitas baixas e voltam a cair logo depois da decolagem, mas os mais altos ficam flutuando no espaço e podem, inclusive, explodir devido aos restos de combustível que contêm, criando milhares de outros fragmentos.">
 
-                            <img class="carousel-item" src="./assets/img/satelite.png" id="satelite" 
-                            data-descricao="Os satélites têm uma vida útil limitada X, quando suas baterias se esgotam ou deixam de funcionar, ficam flutuando no espaço. No início da corrida espacial presumiu-se que mais cedo ou mais tarde a órbita desses objetos abandonados iria decair e eles seriam destruídos na reentrada. No entanto, especialmente em órbitas altas, isso pode não ocorrer nunca.">
+                                    <img class="carousel-item" src="./assets/img/robo.png" id="robo"
+                                        data-descricao="Descrição do robô">
 
-                            <img class="carousel-item" src="./assets/img/parafusos.png" id="parafusos" 
-                            data-descricao="Os astronautas podem perder ferramentas ou outros objetos durante seus passeios espaciais. Em 2008, por exemplo, escapou das mãos da astronauta Heidemarie Stefanyshyn-Piper uma caixa de ferramentas, que se desintegrou ao entrar na atmosfera após quase um ano e depois de ter dado mais de 4.000 voltas ao redor da Terra.">
-                        </div>
-                    </div>
-                    <div class="button next" onclick="moveSlide(1)">></div>
-                </div>
-            </div>
-        </div>
-        <div class="descricao" id="descricao"></div>
-    </div>
+                                    <img class="carousel-item" src="./assets/img/satelite.png" id="satelite"
+                                        data-descricao="Os satélites têm uma vida útil limitada X, quando suas baterias se esgotam ou deixam de funcionar, ficam flutuando no espaço. No início da corrida espacial presumiu-se que mais cedo ou mais tarde a órbita desses objetos abandonados iria decair e eles seriam destruídos na reentrada. No entanto, especialmente em órbitas altas, isso pode não ocorrer nunca.">
 
-    <!-- Sobre -->
-    <div class="sobre" id="sobre">
-        <div class="container">
-            <h1>Astro Cleanup</h1>
-            <p>Para combater a desinformação sobre a situação em nossos espaços aéreos, será criado um site institucional que vai ser dedicado a fornecer informações e compartilhar iniciativas relacionadas à busca de soluções para a poluição espacial.</p>
-            <p>A plataforma Astro Cleanup oferecerá notícias, filmes e livros sobre o tema do espaço, incluindo informações detalhadas sobre exploração espacial e lixo espacial. Além disso, a plataforma busca promover uma reflexão sobre o assunto, apresentando-o de maneira acessível e compreensível, sem minimizar sua gravidade, mas evitando alarmismo.</p>
-            <p>Tem como objetivo se conciliar com os seguintes ODSs (Objetivo de Desenvolvimento Sustentável) da ONU:</p>
-            <ul>
-                <li>12 - Consumo e produção responsáveis;</li>
-                <li>13 - Ação contra a mudança global do clima;</li>
-                <li>14 - Vida na água;</li>
-                <li>15 - Vida Terrestre.</li>
-            </ul>
-            <p>O destaque seria do ODS 12. Consumo e produção responsáveis, já que para diminuir o problema devemos nos conscientizar na produção dos elementos construídos, por exemplo, criando funcionalidades ecológicas no desligamento ou destruição de um satélite.</p>
-        </div>
-        <div class="eddie-acenando"></div>
-    </div>
-
-    <!-- Footer -->
-    <div class="footer" id="criadora">
-        <div class="criadora">
-            <p>Gostaria de conhecer mais sobre a criadora? Acesse aqui!</p>
-            <a href="criadora.html" class="botao">Conheça-me</a>
-        </div>
-        <div class="container">
-            <div class="container-menor">
-                <div class="planeta-ods-redes">
-                    <div class="redes">
-                        <div class="social"><img src=""></div>
-                        <div class="social"><img src=""></div>
-                        <div class="social"><img src=""></div>
-                    </div>
-                    <div class="planeta"></div>
-                    <div class="ods">
-                        <p>Esse projeto promove:</p>
-                        <div class="row">
-                            <img src="./assets/img/ods/SDG-12.svg">
-                            <img src="./assets/img/ods/SDG-13.svg">
-                        </div>
-                        <div class="row">
-                            <img src="./assets/img/ods/SDG-14.svg">
-                            <img src="./assets/img/ods/SDG-15.svg">
-                        </div>
+                                    <img class="carousel-item" src="./assets/img/parafusos.png" id="parafusos"
+                                        data-descricao="Os astronautas podem perder ferramentas ou outros objetos durante seus passeios espaciais. Em 2008, por exemplo, escapou das mãos da astronauta Heidemarie Stefanyshyn-Piper uma caixa de ferramentas, que se desintegrou ao entrar na atmosfera após quase um ano e depois de ter dado mais de 4.000 voltas ao redor da Terra.">
+                                </div>
+                            </div>
+                            <div class="button next" onclick="moveSlide(1)">></div>
                     </div>
                 </div>
             </div>
+            <div class="descricao" id="descricao"></div>
         </div>
-    </div>
 
-    <script>
-        const container = document.querySelector('.carousel-container');
-        const slides = Array.from(container.children);
-        const slideWidth = slides[0].offsetWidth + 20;
+        <!-- Sobre -->
+        <div class="sobre" id="sobre">
+            <div class="container">
+                <h1>Astro Cleanup</h1>
+                <p>Para combater a desinformação sobre a situação em nossos espaços aéreos, será criado um site
+                    institucional que vai ser dedicado a fornecer informações e compartilhar iniciativas relacionadas à
+                    busca de soluções para a poluição espacial.</p>
+                <p>A plataforma Astro Cleanup oferecerá notícias, filmes e livros sobre o tema do espaço, incluindo
+                    informações detalhadas sobre exploração espacial e lixo espacial. Além disso, a plataforma busca
+                    promover uma reflexão sobre o assunto, apresentando-o de maneira acessível e compreensível, sem
+                    minimizar sua gravidade, mas evitando alarmismo.</p>
+                <p>Tem como objetivo se conciliar com os seguintes ODSs (Objetivo de Desenvolvimento Sustentável) da
+                    ONU:</p>
+                <ul>
+                    <li>12 - Consumo e produção responsáveis;</li>
+                    <li>13 - Ação contra a mudança global do clima;</li>
+                    <li>14 - Vida na água;</li>
+                    <li>15 - Vida Terrestre.</li>
+                </ul>
+                <p>O destaque seria do ODS 12. Consumo e produção responsáveis, já que para diminuir o problema devemos
+                    nos conscientizar na produção dos elementos construídos, por exemplo, criando funcionalidades
+                    ecológicas no desligamento ou destruição de um satélite.</p>
+            </div>
+            <div class="eddie-acenando"></div>
+        </div>
 
-        function moveSlide(direction) {
-            if (direction === 1) {
-                container.appendChild(container.firstElementChild);
-            } else {
-                container.insertBefore(container.lastElementChild, container.firstElementChild);
+        <!-- Footer -->
+        <div class="footer" id="criadora">
+            <div class="criadora">
+                <p>Gostaria de conhecer mais sobre a criadora? Acesse aqui!</p>
+                <a href="criadora.html" class="botao">Conheça-me</a>
+            </div>
+            <div class="container">
+                <div class="container-menor">
+                    <div class="planeta-ods-redes">
+                        <div class="redes">
+                            <div class="social"><img src=""></div>
+                            <div class="social"><img src=""></div>
+                            <div class="social"><img src=""></div>
+                        </div>
+                        <div class="planeta"></div>
+                        <div class="ods">
+                            <p>Esse projeto promove:</p>
+                            <div class="row">
+                                <img src="./assets/img/ods/SDG-12.svg">
+                                <img src="./assets/img/ods/SDG-13.svg">
+                            </div>
+                            <div class="row">
+                                <img src="./assets/img/ods/SDG-14.svg">
+                                <img src="./assets/img/ods/SDG-15.svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const container = document.querySelector('.carousel-container');
+            const slides = Array.from(container.children);
+            const slideWidth = slides[0].offsetWidth + 20;
+
+            function moveSlide(direction) {
+                if (direction === 1) {
+                    container.appendChild(container.firstElementChild);
+                } else {
+                    container.insertBefore(container.lastElementChild, container.firstElementChild);
+                }
+
+                container.style.transition = 'none';
+                container.style.transform = 'none';
             }
 
-            container.style.transition = 'none';
-            container.style.transform = 'none';
-        }
+            const descricao = document.getElementById('descricao');
+            const items = document.querySelectorAll('.carousel-item');
 
-        const descricao = document.getElementById('descricao');
-        const items = document.querySelectorAll('.carousel-item');
+            items.forEach(item => {
+                item.addEventListener('mouseover', () => {
+                    descricao.textContent = item.getAttribute('data-descricao');
+                    descricao.style.display = 'block';
+                });
 
-        items.forEach(item => {
-            item.addEventListener('mouseover', () => {
-                descricao.textContent = item.getAttribute('data-descricao');
-                descricao.style.display = 'block';
+                item.addEventListener('mouseout', () => {
+                    descricao.style.display = 'none';
+                });
             });
-
-            item.addEventListener('mouseout', () => {
-                descricao.style.display = 'none';
-            });
-        });
-    </script>
+        </script>
 </body>
 
 </html>
