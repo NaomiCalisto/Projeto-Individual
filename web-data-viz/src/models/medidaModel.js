@@ -1,36 +1,13 @@
-// var database = require("../database/config");
+var database = require("../database/config");
 
-// function buscarUltimasMedidasUsuario() {
+function buscarUltimasMedidasGlobal(limite_linhas) {
 
-//     var instrucaoSql = ``;
+    var instrucaoSql = `select nome, max(score) as highscore from scoreboard join usuario on fkUsuario = idUsuario group by nome order by highscore desc limit ${limite_linhas}`;
 
-//     console.log("Executando a instrução SQL: \n" + instrucaoSql);
-//     return database.executar(instrucaoSql);
-// }
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 
-// function buscarUltimasMedidasGlobal() {
-
-//     var instrucaoSql = ``;
-
-//     console.log("Executando a instrução SQL: \n" + instrucaoSql);
-//     return database.executar(instrucaoSql);
-// }
-
-// // function buscarMedidasEmTempoReal(idAquario) {
-
-// //     var instrucaoSql = `SELECT 
-// //         dht11_temperatura as temperatura, 
-// //         dht11_umidade as umidade,
-// //                         DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
-// //                         fk_aquario 
-// //                         FROM medida WHERE fk_aquario = ${idAquario} 
-// //                     ORDER BY id DESC LIMIT 1`;
-
-// //     console.log("Executando a instrução SQL: \n" + instrucaoSql);
-// //     return database.executar(instrucaoSql);
-// // }
-
-// module.exports = {
-//     buscarUltimasMedidasUsuario,
-//     buscarUltimasMedidasGlobal
-// }
+module.exports = {
+    buscarUltimasMedidasGlobal
+}

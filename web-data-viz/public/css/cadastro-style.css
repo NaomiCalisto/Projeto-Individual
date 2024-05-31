@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); */
 
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Press Start 2P';
+    font-family: 'Silkscreen';
     background-image: url(../assets/img/Home.svg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -137,7 +138,7 @@ body {
     border: none;
     background-color: lightgray;
     margin-top: 10px;
-    font-family: 'Press Start 2P';
+    font-family: 'Silkscreen';
     height: 40px;
     border-radius: 15px;
 }
@@ -196,7 +197,7 @@ body {
     text-align: center;
     font-size: 30px;
     padding: 20px;
-    font-family: "Press Start 2P", cursive;
+    font-family: "Silkscreen", cursive;
     text-decoration: none;
     color: black;
     box-shadow: inset -4px -4px 0px 0px gray;

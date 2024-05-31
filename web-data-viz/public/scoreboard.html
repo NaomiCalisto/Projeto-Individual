@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trash Destroyer</title>
+
     <link rel="stylesheet" href="./css/scoreboard-style.css">
 
     <!-- icon -->
@@ -13,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body>
+<body onload="exibirGraficoGlobal();">
     <div class="header">
         <div class="container">
             <a href="index.html" onclick="apagarSession()">
@@ -46,10 +47,10 @@
                 <div class="usuario" id="icon-usuario" onclick="mostrar('usuario')"></div>
                 <div class="global" id="icon-global" onclick="mostrar('global')"></div>
             </div>
-            <div class="grafico">
-                <canvas id="chart-usuario"></canvas>
-                <canvas id="chart-global" style="display: none;"></canvas>
+            <div class="grafico" id="grafico">
+            
             </div>
+
         </div>
     </div>
 
@@ -58,242 +59,73 @@
 </html>
 
 <script>
-    const usuario = document.getElementById('chart-usuario');
-    const global = document.getElementById('chart-global');
-
-    new Chart(usuario, {
-        type: 'bar',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [20, 11, 7, 10, 3, 4],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-
-    new Chart(global, {
-        type: 'bar',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-
-    const iconUsuario = document.getElementById('icon-usuario');
-    const iconGlobal = document.getElementById('icon-global');
-
-    function mostrar(grafico) {
-        if (grafico === 'usuario') {
-            usuario.style.display = 'block';
-            iconUsuario.style.borderBottom = 'black solid 5px';
-
-            global.style.display = 'none';
-            iconGlobal.style.borderBottom = 'none';
-        } else if (grafico === 'global') {
-            global.style.display = 'block';
-            iconGlobal.style.borderBottom = 'black solid 5px';
-
-            usuario.style.display = 'none';
-            iconUsuario.style.borderBottom = 'none';
-        }
-    }
-
+    
     function apagarSession() {
         sessionStorage.clear();
     }
 
 
+    function exibirGraficoGlobal() {
+        document.getElementById("grafico").innerHTML += `
+                    <canvas id="myChart-global"></canvas>`
+        ;
+        obterDadosGraficoGlobal();
+    }
 
-    // let proximaAtualizacao;
+    function obterDadosGraficoGlobal() {
+        fetch(`/medidas/ultimasGlobal/`, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
+                        plotarGraficoGlobal(resposta);
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
 
-    // window.onload = exibirAquariosDoUsuario();
+    function plotarGraficoGlobal(resposta) {
+        console.log('iniciando plotagem do gráfico...');
 
-    // function exibirAquariosDoUsuario() {
-    //     var aquarios = JSON.parse(sessionStorage.AQUARIOS);
-    //     aquarios.forEach(item => {
-    //         document.getElementById("btnAquario").innerHTML += `
-    //         <button class="btn-chart" onclick="exibirAquario(${item.id})" id="btnAquario${item.id}">${item.descricao}</button>
-    //         `
+        let labels = [];
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Highscore',
+                data: [],
+                fill: false,
+                borderColor: '',
+                backgroundColor: '',
+                tension: 0.1
+            }]
+        };
 
-    //         document.getElementById("graficos").innerHTML += `
-    //             <div id="grafico${item.id}" class="display-none">
-    //                 <h3 class="tituloGraficos">
-    //                     <span id="tituloAquario${item.id}">${item.descricao}</span>
-    //                 </h3>
-    //                 <div class="graph">
-    //                     <canvas id="myChartCanvas${item.id}"></canvas>
-    //                 </div>
-    //                 <div class="label-captura">
-    //                     <p id="avisoCaptura${item.id}" style="color: white"></p>
-    //                 </div>
-    //             </div>
-    //         `
+        console.log('Dados recebidos para plotar no gráfico Global:', resposta);
 
-    //         obterDadosGrafico(item.id)
-    //     });
+        for (let i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.nome);
+            dados.datasets[0].data.push(registro.highscore);
+        }
 
-    //     if (aquarios.length > 0) {
-    //         exibirAquario(aquarios[0].id)
-    //     }
-    // }
+        console.log('Labels:', labels);
+        console.log('Dados do Dataset:', dados.datasets);
 
-    // function alterarTitulo(idAquario) {
-    //     var tituloAquario = document.getElementById(`tituloAquario${idAquario}`)
-    //     var descricao = JSON.parse(sessionStorage.AQUARIOS).find(item => item.id == idAquario).descricao;
-    //     tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>" + descricao + "</span>"
-    // }
+        const config = {
+            type: 'bar',
+            data: dados,
+        };
 
-    // function exibirAquario(idAquario) {
-    //     let todosOsGraficos = JSON.parse(sessionStorage.AQUARIOS);
+        let ctx = document.getElementById('myChart-global').getContext('2d');
+        let myChartGlobal = new Chart(ctx, config);
 
-    //     for (i = 0; i < todosOsGraficos.length; i++) {
-    //         // exibindo - ou não - o gráfico
-    //         if (todosOsGraficos[i].id != idAquario) {
-    //             let elementoAtual = document.getElementById(`grafico${todosOsGraficos[i].id}`)
-    //             if (elementoAtual.classList.contains("display-block")) {
-    //                 elementoAtual.classList.remove("display-block")
-    //             }
-    //             elementoAtual.classList.add("display-none")
-
-    //             // alterando estilo do botão
-    //             let btnAtual = document.getElementById(`btnAquario${todosOsGraficos[i].id}`)
-    //             if (btnAtual.classList.contains("btn-pink")) {
-    //                 btnAtual.classList.remove("btn-pink")
-    //             }
-    //             btnAtual.classList.add("btn-white")
-    //         }
-    //     }
-
-    //     // exibindo - ou não - o gráfico
-    //     let graficoExibir = document.getElementById(`grafico${idAquario}`)
-    //     graficoExibir.classList.remove("display-none")
-    //     graficoExibir.classList.add("display-block")
-
-    //     // alterando estilo do botão
-    //     let btnExibir = document.getElementById(`btnAquario${idAquario}`)
-    //     btnExibir.classList.remove("btn-white")
-    //     btnExibir.classList.add("btn-pink")
-    // }
-
-    // // O gráfico é construído com três funções:
-    // // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
-    // // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
-    // // 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
-
-    // // Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
-    // // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
-    // // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
-
-    // //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    // //     Para ajustar o "select", ajuste o comando sql em src/models
-    // function obterDadosGrafico(idAquario) {
-
-    //     alterarTitulo(idAquario)
-
-    //     if (proximaAtualizacao != undefined) {
-    //         clearTimeout(proximaAtualizacao);
-    //     }
-
-    //     fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then(function (response) {
-    //         if (response.ok) {
-    //             response.json().then(function (resposta) {
-    //                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-    //                 resposta.reverse();
-
-    //                 plotarGrafico(resposta, idAquario);
-
-    //             });
-    //         } else {
-    //             console.error('Nenhum dado encontrado ou erro na API');
-    //         }
-    //     })
-    //         .catch(function (error) {
-    //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    //         });
-    // }
-
-    // // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-    // // Configura o gráfico (cores, tipo, etc), materializa-o na página e,
-    // // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-    // function plotarGrafico(resposta, idAquario) {
-
-    //     console.log('iniciando plotagem do gráfico...');
-
-    //     // Criando estrutura para plotar gráfico - labels
-    //     let labels = [];
-
-    //     // Criando estrutura para plotar gráfico - dados
-    //     let dados = {
-    //         labels: labels,
-    //         datasets: [{
-    //             label: 'Umidade',
-    //             data: [],
-    //             fill: false,
-    //             borderColor: 'rgb(75, 192, 192)',
-    //             tension: 0.1
-    //         },
-    //         {
-    //             label: 'Temperatura',
-    //             data: [],
-    //             fill: false,
-    //             borderColor: 'rgb(199, 52, 52)',
-    //             tension: 0.1
-    //         }]
-    //     };
-
-    //     console.log('----------------------------------------------')
-    //     console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-    //     console.log(resposta)
-
-    //     // Inserindo valores recebidos em estrutura para plotar o gráfico
-    //     for (i = 0; i < resposta.length; i++) {
-    //         var registro = resposta[i];
-    //         labels.push(registro.momento_grafico);
-    //         dados.datasets[0].data.push(registro.umidade);
-    //         dados.datasets[1].data.push(registro.temperatura);
-    //     }
-
-    //     console.log('----------------------------------------------')
-    //     console.log('O gráfico será plotado com os respectivos valores:')
-    //     console.log('Labels:')
-    //     console.log(labels)
-    //     console.log('Dados:')
-    //     console.log(dados.datasets)
-    //     console.log('----------------------------------------------')
-
-    //     // Criando estrutura para plotar gráfico - config
-    //     const config = {
-    //         type: 'line',
-    //         data: dados,
-    //     };
-
-    //     // Adicionando gráfico criado em div na tela
-    //     let myChart = new Chart(
-    //         document.getElementById(`myChartCanvas${idAquario}`),
-    //         config
-    //     );
-
-    //     setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-    // }
+        // let myChart2 = new Chart(ctx, config);
+    }
 
 </script>
