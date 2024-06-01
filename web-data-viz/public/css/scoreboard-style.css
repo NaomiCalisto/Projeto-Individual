@@ -30,6 +30,7 @@ body {
 .header a {
   text-decoration: none;
   color: white;
+  font-size: 20px;
 }
 
 .agora {
@@ -37,7 +38,7 @@ body {
 }
 
 .navbar {
-  width: 475px;
+  width: 500px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -56,13 +57,14 @@ body {
 
 .header h1 {
   margin: 0;
+  font-size: 20px;
 }
 
 
 /* Dashboard */
 .dashboard {
   display: flex;
-  height: 667px;
+  height: 92vh;
   justify-content: center;
   align-items: center;
 }

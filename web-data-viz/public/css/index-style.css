@@ -259,7 +259,7 @@ body {
     align-items: center;
     display: flex;
     color: white;
-    height: 32%;
+    height: 33%;
     font-size: 25px;
 }
 
@@ -275,7 +275,6 @@ body {
 
 .redes {
     display: flex;
-    /* border: solid red; */
     height: 200px;
     flex-direction: column;
     justify-content: space-between;
@@ -301,6 +300,7 @@ body {
     background-size: cover;
     height: 400px;
     width: 500px;
+    margin-left: 55px;
 }
 
 .ods {

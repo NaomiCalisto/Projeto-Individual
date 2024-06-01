@@ -30,6 +30,7 @@ body {
 .header a {
   text-decoration: none;
   color: white;
+  font-size: 20px;
 }
 
 .agora {
@@ -37,7 +38,7 @@ body {
 }
 
 .navbar {
-  width: 475px;
+  width: 500px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -56,6 +57,7 @@ body {
 
 .header h1 {
   margin: 0;
+  font-size: 20px;
 }
 
 /* Jogo */
@@ -64,6 +66,7 @@ body {
   flex-direction: row;
   align-content: center;
   justify-content: center;
+  height: 92vh;
 }
 
 .game-container {
@@ -77,18 +80,27 @@ body {
 }
 
 .score-board {
-  align-self: center;
   display: flex;
+  align-self: center;
   background-color: black;
   border: solid white;
   height: 300px;
   width: 200px;
   color: white;
-  font-size: 14px;
+  font-size: 18px;
   margin-left: 50px;
   padding: 10px;
   flex-direction: column;
   line-height: 20px;
+}
+
+.score-board p{
+  margin-top: 0;
+}
+
+.score-board .bloco {
+  height: 224.5px;
+  overflow: hidden;
 }
 
 .dashboard {
@@ -107,16 +119,10 @@ body {
   height: 50px;
 }
 
-.trofeu:hover{
-  transform: translateY(-20px);
-  transition: 1s;
-}
-
-
 .score-display {
   background-color: black;
   color: white;
-  font-size: 24px;
+  font-size: 25px;
   width: 50vw;
   padding-top: 15px;
   padding-left: 20px;
@@ -133,39 +139,80 @@ body {
   align-items: center;
 }
 
+.barra {
+  background-color: black;
+  width: 50vw;
+  height: 47px;
+}
+
 .bloco-start {
   display: flex;
   justify-content: center;
   background-color: #000d3d8a;
   height: 500px;
   width: 500px;
-  padding: 80px;
+  padding: 57px;
   color: white;
   position: absolute;
+}
+
+.bloco-start h1 {
+  font-size: 35px;
+  margin-top: 0;
+  text-align: center;
+}
+
+.bloco-start p {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 0;
+  width: 350px;
+}
+
+.bloco-start .bloco {
+  display: flex;
+  justify-content: space-between;
+  height: 390px;
+  flex-direction: column;
+  align-items: center;
 }
 
 .bloco-tryagain {
   display: flex;
-  display: none;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: center, space-between;
   background-color: #000d3d8a;
   height: 500px;
   width: 500px;
-  padding: 80px;
+  padding: 55px;
   color: white;
   position: absolute;
   align-items: center;
+  display: none;
+}
+
+.bloco-tryagain h1 {
+  font-size: 35px;
+  margin-top: 0;
+}
+
+.bloco-tryagain p {
+  font-size: 20px;
+  text-align: justify;
+  margin-top: 0;
 }
 
 .bloco-tryagain .bloco {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  height: 390px;
   flex-direction: column;
   align-items: center;
 }
 
 .final-score {
-  font-size: 24px;
+  text-align: center;
+  font-size: 32px;
 }
 
 .trash {
@@ -182,7 +229,6 @@ body {
 .bloco-start .botao {
   background: white;
   display: inline-block;
-  position: relative;
   text-align: center;
   font-size: 30px;
   padding: 20px;
@@ -196,7 +242,6 @@ body {
 .bloco-tryagain .botao {
   background: white;
   display: inline-block;
-  position: relative;
   text-align: center;
   font-size: 30px;
   padding: 20px;
@@ -204,7 +249,6 @@ body {
   text-decoration: none;
   color: black;
   box-shadow: inset -4px -4px 0px 0px gray;
-  margin-top: 220px;
 }
 
 .botao:hover,

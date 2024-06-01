@@ -42,20 +42,21 @@
     <div class="jogo">
 
         <div id="game-container" class="game-container">
-            <div class='score-display'>SCORE:<span id="score">0</span></div>
+            <div class='score-display'>SCORE: <span id="score">0</span></div>
             <div id="game-area" class="game-area"></div>
+            <div class="barra"></div>
 
             <div class="bloco-start" id="bloco-start">
                 <div class="bloco">
                     <h1>TRASH DESTROYER</h1>
                     <p>Venha nos ajudar a minimizar esse impacto! Destrua os lixos espaciais no tempo determinado</p>
                     <p>Boa sorte explorador!</p>
-                    <div class="botao" onclick="startGame()">START</div>
+                    <a class="botao" onclick="startGame()">START</a>
                 </div>
             </div>
             <div class="bloco-tryagain" id="bloco-tryagain">
                 <div class="bloco">
-                    <div class="final-score">SCORE:<span id="final-score"></span></div>
+                    <div class="final-score">SCORE:<br><span id="final-score"></span></div>
 
                     <div class="botao" onclick="startGame()">TRY AGAIN</div>
                 </div>
@@ -64,7 +65,7 @@
 
         <div class="score-board">
             <p>SCOREBOARD:</p>
-            <div id="score-board"></div>
+            <div id="score-board" class="bloco"></div>
             <div class="dashboard">
                 <a href="scoreboard.html">
                     <div class="trofeu"></div>
@@ -146,7 +147,7 @@
     // Função para atualizar a div score-board
     function updateScoreBoard() {
         scoreBoardDiv.innerHTML = '';
-        for (let i = 0; i < scoreboard.length; i++) {
+        for (let i = scoreboard.length - 1; i >= 0 ; i--) {
             const scoreItem = document.createElement('div');
             scoreItem.textContent = `${scoreboard[i]}`;
             scoreBoardDiv.appendChild(scoreItem);
@@ -189,7 +190,7 @@
             blocoTryagain.style.display = 'block';
             finalScore.innerHTML = `${scoreboard[scoreboard.length - 1]}`;
             updateScoreBoard(); // Atualiza a scoreboard
-        }, 60000); // 60 segundos
+        }, 45000); // 60 segundos
     }
 
 

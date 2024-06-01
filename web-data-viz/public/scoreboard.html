@@ -23,7 +23,7 @@
 
             <ul class="navbar">
                 <li>
-                    <a href="entrada.html">Home</a>
+                    <a href="home.html">Home</a>
                 </li>
                 <li>
                     <a href="jogo.html">Jogo</a>
@@ -65,6 +65,7 @@
     }
 
 
+    // Gráfico Global
     function exibirGraficoGlobal() {
         document.getElementById("grafico").innerHTML += `
                     <canvas id="myChart-global"></canvas>`
@@ -124,8 +125,70 @@
 
         let ctx = document.getElementById('myChart-global').getContext('2d');
         let myChartGlobal = new Chart(ctx, config);
-
-        // let myChart2 = new Chart(ctx, config);
     }
+
+
+    // Gráfico Usuário
+    // function exibirGraficoUsuario() {
+    //     document.getElementById("grafico").innerHTML += `
+    //                 <canvas id="myChart-usuario"></canvas>`
+    //     ;
+    //     obterDadosGraficoUsuario();
+    // }
+
+    // function obterDadosGraficoUsuario() {
+    //     fetch(`/medidas/ultimasUsuario/`, { cache: 'no-store' })
+    //         .then(function (response) {
+    //             if (response.ok) {
+    //                 response.json().then(function (resposta) {
+    //                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+    //                     resposta.reverse();
+    //                     plotarGraficoUsuario(resposta);
+    //                 });
+    //             } else {
+    //                 console.error('Nenhum dado encontrado ou erro na API');
+    //             }
+    //         })
+    //         .catch(function (error) {
+    //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    //         });
+    // }
+
+    // function plotarGraficoUsuario(resposta) {
+    //     console.log('iniciando plotagem do gráfico...');
+
+    //     let labels = [];
+    //     let dados = {
+    //         labels: labels,
+    //         datasets: [{
+    //             label: 'Score',
+    //             data: [],
+    //             fill: false,
+    //             borderColor: '',
+    //             backgroundColor: '',
+    //             tension: 0.1
+    //         }]
+    //     };
+
+    //     console.log('Dados recebidos para plotar no gráfico Usuario:', resposta);
+
+    //     for (let i = 0; i < resposta.length; i++) {
+    //         var registro = resposta[i];
+    //         labels.push(registro.momento);
+    //         dados.datasets[0].data.push(registro.score);
+    //     }
+
+    //     console.log('Labels:', labels);
+    //     console.log('Dados do Dataset:', dados.datasets);
+
+    //     const config = {
+    //         type: 'bar',
+    //         data: dados,
+    //     };
+
+    //     let ctx = document.getElementById('myChart-usuario').getContext('2d');
+    //     let myChartUsuario = new Chart(ctx, config);
+
+    // }
 
 </script>

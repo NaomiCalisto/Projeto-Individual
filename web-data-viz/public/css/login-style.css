@@ -11,14 +11,8 @@ body {
 }
 
 /* Header */
-.header {
-    background-color: black;
-    border-bottom: 2px solid;
-    width: 100%;
-    z-index: 2;
-}
-
 .header .container {
+    background-color: black;
     display: flex;
     width: 80%;
     margin-left: 30px;
@@ -38,7 +32,7 @@ body {
 }
 
 .navbar {
-    width: 500px;
+    width: 390px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -46,6 +40,12 @@ body {
     color: white;
     font-size: 15px;
     margin-right: -230px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 20px;
+
 }
 
 .marca {
@@ -61,12 +61,13 @@ body {
 
 }
 
-
-.login{
+/* Login */
+.login {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    height: 92vh;
 }
 
 /* Eddie */
@@ -97,13 +98,23 @@ body {
     justify-content: center;
 }
 
-.conteudo input{
+h1 {
+    font-size: 40px;
+}
+
+.conteudo span {
+    font-size: 17px;
+}
+
+.conteudo input {
     border: none;
     background-color: lightgray;
     margin-top: 10px;
+    font-family: 'Silkscreen';
     width: 500px;
     height: 40px;
     border-radius: 15px;
+    font-size: 17px;
 }
 
 .email {
@@ -123,7 +134,12 @@ body {
     margin-top: 50px;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
+}
+
+.voltar p{
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 45px;
 }
 
 .row {
@@ -133,15 +149,13 @@ body {
     align-items: center;
 }
 
-.conteudo .row span{
-    font-size: 12px;
+.conteudo .row span {
     width: 228px;
     align-self: flex-end;
-    /* margin-bottom: 10px; */
     line-height: 20px;
 }
 
-.row a{
+.row a {
     color: black;
 }
 

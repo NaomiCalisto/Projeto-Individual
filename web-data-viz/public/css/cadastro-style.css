@@ -11,13 +11,8 @@ body {
 }
 
 /* Header */
-.header {
-    background-color: black;
-    border-bottom: 2px solid;
-    width: 100%;
-}
-
 .header .container {
+    background-color: black;
     display: flex;
     width: 80%;
     margin-left: 30px;
@@ -29,6 +24,7 @@ body {
 .header a {
     text-decoration: none;
     color: white;
+    font-size: 20px;
 }
 
 .agora {
@@ -36,7 +32,7 @@ body {
 }
 
 .navbar {
-    width: 500px;
+    width: 390px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -55,14 +51,17 @@ body {
 
 .header h1 {
     margin: 0;
+    font-size: 20px;
+
 }
 
-
-.cadastro{
+/* Cadastro */
+.cadastro {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    height: 92vh;
 }
 
 /* Eddie */
@@ -79,7 +78,7 @@ body {
     display: flex;
     background-color: white;
     width: 700px;
-    height: 667px;
+    height: 92vh;
     flex-direction: column;
     align-items: center;
     padding-top: 25px;
@@ -93,6 +92,16 @@ body {
     justify-content: center;
 }
 
+h1 {
+    font-size: 40px;
+    margin-bottom: 0px;
+    margin-top: 15px;
+}
+
+.conteudo span {
+    font-size: 17px;
+}
+
 .nomes {
     display: flex;
     flex-direction: row;
@@ -100,12 +109,12 @@ body {
     margin-top: 15px;
 }
 
-.nomes .nome{
+.nomes .nome {
     display: flex;
     flex-direction: column;
 }
 
-.nomes .sobrenome{
+.nomes .sobrenome {
     display: flex;
     flex-direction: column;
 }
@@ -117,12 +126,12 @@ body {
     margin-top: 15px;
 }
 
-.senhas .senha{
+.senhas .senha {
     display: flex;
     flex-direction: column;
 }
 
-.senhas .confSenha{
+.senhas .confSenha {
     display: flex;
     flex-direction: column;
 }
@@ -134,24 +143,25 @@ body {
 }
 
 
-.conteudo input{
+.conteudo input {
     border: none;
     background-color: lightgray;
     margin-top: 10px;
     font-family: 'Silkscreen';
     height: 40px;
     border-radius: 15px;
+    font-size: 17px;
 }
 
-.nomes input{
+.nomes input {
     width: 245px;
 }
 
-.senhas input{
+.senhas input {
     width: 245px;
 }
 
-.email input{
+.email input {
     width: 500px;
 }
 
@@ -165,7 +175,12 @@ body {
     margin-top: 50px;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
+}
+
+.voltar p {
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 45px;
 }
 
 .row {
@@ -175,14 +190,13 @@ body {
     align-items: center;
 }
 
-.conteudo .row span{
-    font-size: 12px;
-    width: 240px;
+.conteudo .row span {
+    width: 243px;
     align-self: flex-end;
     line-height: 20px;
 }
 
-.row a{
+.row a {
     color: black;
 }
 
