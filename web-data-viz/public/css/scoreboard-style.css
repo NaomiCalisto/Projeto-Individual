@@ -72,13 +72,13 @@ body {
 .dashboard .container {
   display: flex;
   background-color: white;
-  /* border: red solid; */
-  width: 1000px;
+  width: 1200px;
   height: 600px;
   align-items: center;
   flex-direction: row;
   padding: 50px;
   justify-content: space-between;
+  border-radius: 5px
 }
 
 .global-usuario {
@@ -96,6 +96,8 @@ body {
   height: 110px;
   cursor: pointer;
   padding: 5px;
+  border-radius: 5px;
+
 }
 
 .usuario{
@@ -104,73 +106,16 @@ body {
   width: 110px;
   height: 110px;
   cursor: pointer;
-  border-bottom: black solid 5px;
   padding: 5px;
+  border-radius: 5px;
 }
 
 .grafico {
   display: flex;
-  width: 750px;
-  height: 500px;
+  width: 920px;
+  height: 475px;
   align-items: center;
-}
-
-
-/* Botão */
-.bloco-start .botao {
-  background: white;
-  display: inline-block;
-  position: relative;
-  text-align: center;
-  font-size: 30px;
-  padding: 20px;
-  font-family: "Silkscreen", cursive;
-  text-decoration: none;
-  color: black;
-  box-shadow: inset -4px -4px 0px 0px gray;
-  margin-top: 15px;
-}
-
-.bloco-tryagain .botao {
-  background: white;
-  display: inline-block;
-  position: relative;
-  text-align: center;
-  font-size: 30px;
-  padding: 20px;
-  font-family: "Silkscreen", cursive;
-  text-decoration: none;
-  color: black;
-  box-shadow: inset -4px -4px 0px 0px gray;
-  margin-top: 220px;
-}
-
-.botao:hover,
-.botao:focus {
-  background: white;
-  box-shadow: inset -6px -6px 0px 0px gray;
-}
-
-.botao:active {
-  box-shadow: inset 4px 4px 0px 0px gray;
-}
-
-.botao:before {
-  top: -6px;
-  left: 0;
-  border-top: 6px black solid;
-  border-bottom: 6px gray solid;
-}
-
-.botao:after {
-  left: -6px;
-  top: 0;
-  border-left: 6px gray solid;
-  border-right: 6px black solid;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
+  padding: 10px;
+  background-color: lightgray;
+  border-radius: 5px;
 }

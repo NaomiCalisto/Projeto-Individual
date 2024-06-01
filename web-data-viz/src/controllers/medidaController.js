@@ -22,12 +22,11 @@ function buscarUltimasMedidasGlobal(req, res) {
 function buscarUltimasMedidasUsuario(req, res) {
 
     const limite_linhas = 7;
-
-    var idUsuario = req.params.idAquario;
+    const idUsuarioServer = req.query.idUsuarioServer
 
     console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
 
-    medidaModel.buscarUltimasMedidasUsuario(idUsuario, limite_linhas).then(function (resultado) {
+    medidaModel.buscarUltimasMedidasUsuario(idUsuarioServer, limite_linhas).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {

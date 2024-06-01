@@ -12,9 +12,10 @@
     <link rel="shortcut icon" href="./assets/img/logo.png">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap">
 </head>
 
-<body onload="exibirGraficoGlobal();">
+<body onload="exibirGrafico('usuario')">
     <div class="header">
         <div class="container">
             <a href="index.html" onclick="apagarSession()">
@@ -44,11 +45,12 @@
     <div class="dashboard">
         <div class="container">
             <div class="global-usuario">
-                <div class="usuario" id="icon-usuario" onclick="mostrar('usuario')"></div>
-                <div class="global" id="icon-global" onclick="mostrar('global')"></div>
+                <div class="usuario" id="icon-usuario" onclick="exibirGrafico('usuario')"></div>
+                <div class="global" id="icon-global" onclick="exibirGrafico('global')"></div>
             </div>
             <div class="grafico" id="grafico">
-            
+                <canvas id="myChart-usuario" class="myChart-usuario"></canvas>
+                <canvas id="myChart-global" class="myChart-global"></canvas>
             </div>
 
         </div>
@@ -59,20 +61,40 @@
 </html>
 
 <script>
-    
+    var iconSelecionado = 'icon-usuario'; // Armazena o ID do ícone atualmente selecionado
+
     function apagarSession() {
         sessionStorage.clear();
     }
 
+    function exibirGrafico(tipo) {
+        var graficoUsuario = document.getElementById('myChart-usuario');
+        var graficoGlobal = document.getElementById('myChart-global');
 
-    // Gráfico Global
-    function exibirGraficoGlobal() {
-        document.getElementById("grafico").innerHTML += `
-                    <canvas id="myChart-global"></canvas>`
-        ;
-        obterDadosGraficoGlobal();
+        // Oculta todos os gráficos
+        graficoUsuario.style.display = 'none';
+        graficoGlobal.style.display = 'none';
+
+        // Remove o estilo de fundo do ícone atualmente selecionado
+        document.getElementById(iconSelecionado).style.backgroundColor = '';
+
+        // Exibe o gráfico correspondente ao tipo
+        if (tipo === 'usuario') {
+            graficoUsuario.style.display = 'block';
+            obterDadosGraficoUsuario();
+            iconSelecionado = 'icon-usuario'; // Atualiza o ícone selecionado
+        } else if (tipo === 'global') {
+            graficoGlobal.style.display = 'block';
+            obterDadosGraficoGlobal();
+            iconSelecionado = 'icon-global'; // Atualiza o ícone selecionado
+        }
+
+        // Define o estilo de fundo do novo ícone selecionado
+        document.getElementById(iconSelecionado).style.backgroundColor = 'lightgray';
     }
 
+
+    // Gráfico Global
     function obterDadosGraficoGlobal() {
         fetch(`/medidas/ultimasGlobal/`, { cache: 'no-store' })
             .then(function (response) {
@@ -101,8 +123,9 @@
                 label: 'Highscore',
                 data: [],
                 fill: false,
-                borderColor: '',
-                backgroundColor: '',
+                borderColor: '#00225e',
+                borderWidth: 2,
+                backgroundColor: '#1b4385',
                 tension: 0.1
             }]
         };
@@ -121,74 +144,166 @@
         const config = {
             type: 'bar',
             data: dados,
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Scoreboard Global',
+                        font: {
+                            size: 16, // Tamanho da fonte do título
+                            weight: 'bold', // Deixar a fonte do título em negrito
+                            family: 'Silkscreen' // Fonte importada
+                        },
+                        color: 'black' // Cor do texto do título
+                    },
+                    legend: {
+                        labels: {
+                            font: {
+                                size: 14, // Tamanho da fonte das legendas
+                                weight: 'bold', // Deixar a fonte das legendas em negrito
+                                family: 'Silkscreen' // Fonte importada
+                            },
+                            color: 'black' // Cor do texto das legendas
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            font: {
+                                size: 14, // Tamanho da fonte dos rótulos do eixo X
+                                weight: 'bold', // Deixar a fonte dos rótulos do eixo X em negrito
+                                family: 'Silkscreen' // Fonte importada
+                            },
+                            color: 'black' // Cor do texto dos rótulos do eixo X
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            font: {
+                                size: 12, // Tamanho da fonte dos rótulos do eixo Y
+                                weight: 'bold', // Deixar a fonte dos rótulos do eixo Y em negrito
+                                family: 'Silkscreen' // Fonte importada
+                            },
+                            color: 'black' // Cor do texto dos rótulos do eixo Y
+                        }
+                    }
+                }
+            }
         };
 
         let ctx = document.getElementById('myChart-global').getContext('2d');
+
+
         let myChartGlobal = new Chart(ctx, config);
     }
 
 
     // Gráfico Usuário
-    // function exibirGraficoUsuario() {
-    //     document.getElementById("grafico").innerHTML += `
-    //                 <canvas id="myChart-usuario"></canvas>`
-    //     ;
-    //     obterDadosGraficoUsuario();
-    // }
+    function obterDadosGraficoUsuario() {
+        var idUsuarioVar = sessionStorage.ID_USUARIO
 
-    // function obterDadosGraficoUsuario() {
-    //     fetch(`/medidas/ultimasUsuario/`, { cache: 'no-store' })
-    //         .then(function (response) {
-    //             if (response.ok) {
-    //                 response.json().then(function (resposta) {
-    //                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-    //                     resposta.reverse();
-    //                     plotarGraficoUsuario(resposta);
-    //                 });
-    //             } else {
-    //                 console.error('Nenhum dado encontrado ou erro na API');
-    //             }
-    //         })
-    //         .catch(function (error) {
-    //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    //         });
-    // }
+        fetch(`/medidas/ultimasUsuario?idUsuarioServer=${idUsuarioVar}`, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
 
-    // function plotarGraficoUsuario(resposta) {
-    //     console.log('iniciando plotagem do gráfico...');
+                        plotarGraficoUsuario(resposta);
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
 
-    //     let labels = [];
-    //     let dados = {
-    //         labels: labels,
-    //         datasets: [{
-    //             label: 'Score',
-    //             data: [],
-    //             fill: false,
-    //             borderColor: '',
-    //             backgroundColor: '',
-    //             tension: 0.1
-    //         }]
-    //     };
+    function plotarGraficoUsuario(resposta) {
+        console.log('iniciando plotagem do gráfico...');
 
-    //     console.log('Dados recebidos para plotar no gráfico Usuario:', resposta);
+        let labels = [];
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Score',
+                data: [],
+                fill: false,
+                borderColor: '#2d88bc',
+                borderWidth: 2,
+                backgroundColor: '#5da0c7',
+                tension: 0.1
+            }]
+        };
 
-    //     for (let i = 0; i < resposta.length; i++) {
-    //         var registro = resposta[i];
-    //         labels.push(registro.momento);
-    //         dados.datasets[0].data.push(registro.score);
-    //     }
+        console.log('Dados recebidos para plotar no gráfico Usuario:', resposta);
 
-    //     console.log('Labels:', labels);
-    //     console.log('Dados do Dataset:', dados.datasets);
+        for (let i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.momento);
+            dados.datasets[0].data.push(registro.score);
+        }
 
-    //     const config = {
-    //         type: 'bar',
-    //         data: dados,
-    //     };
+        console.log('Labels:', labels);
+        console.log('Dados do Dataset:', dados.datasets);
 
-    //     let ctx = document.getElementById('myChart-usuario').getContext('2d');
-    //     let myChartUsuario = new Chart(ctx, config);
+        const config = {
+            type: 'bar',
+            data: dados,
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Scoreboard Local',
+                        font: {
+                            size: 16, // Tamanho da fonte do título
+                            weight: 'bold', // Deixar a fonte do título em negrito
+                            family: 'Silkscreen' // Fonte importada
+                        },
+                        color: 'black' // Cor do texto do título
+                    },
+                    legend: {
+                        labels: {
+                            font: {
+                                size: 14, // Tamanho da fonte das legendas
+                                weight: 'bold', // Deixar a fonte das legendas em negrito
+                                family: 'Silkscreen' // Fonte importada
+                            },
+                            color: 'black' // Cor do texto das legendas
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            font: {
+                                size: 14, // Tamanho da fonte dos rótulos do eixo X
+                                weight: 'bold', // Deixar a fonte dos rótulos do eixo X em negrito
+                                family: 'Silkscreen' // Fonte importada
+                            },
+                            color: 'black' // Cor do texto dos rótulos do eixo X
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            font: {
+                                size: 12, // Tamanho da fonte dos rótulos do eixo Y
+                                weight: 'bold', // Deixar a fonte dos rótulos do eixo Y em negrito
+                                family: 'Silkscreen' // Fonte importada
+                            },
+                            color: 'black' // Cor do texto dos rótulos do eixo Y
+                        }
+                    }
+                }
+            }
+        };
 
-    // }
+        let ctx = document.getElementById('myChart-usuario').getContext('2d');
+        
+        let myChartUsuario = new Chart(ctx, config);
+
+    }
 
 </script>
