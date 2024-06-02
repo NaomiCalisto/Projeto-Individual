@@ -5,7 +5,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Silkscreen';
-    background-image: url(../assets/img/Home.svg);
+    background-image: url(../assets/img/backgroundLiso.svg);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -55,34 +55,71 @@ body {
 
 }
 
-/* Banner */
-.banner {
+/* Criadora */
+.criadora {
     display: flex;
-    height: 695px;
+    height: 92vh;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.banner .container {
+.foto-moldura {
     display: flex;
-    width: 1000px;
-    padding-top: 215px;
-    padding-left: 50px;
-    color: white;
-    flex-direction: column;
-}
-
-.frase {
-    color: white;
-    font-size: 30px;
-    margin-bottom: 20px;
-}
-
-.area {
-    display: flex;
-    flex-direction: row;
-}
-
-.area p {
-    align-self: center;
+    height: 555px;
+    width: 500px;
+    justify-content: center;
+    align-items: center;
     margin-left: 50px;
-    width: fit-content;
+}
+
+.moldura {
+    background-image: url(../assets/img/moldura.png);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 555px;
+    width: 500px;
+    z-index: 2;
+}
+
+.foto {
+    background-image: url(../assets/img/eu.jpg);
+    background-size: cover;
+    display: flex;
+    height: 55vh;
+    width: 55vh;
+    border-radius: 100%;
+    position: absolute;
+    top: 19.3%;
+    z-index: 1;
+}
+
+.criadora .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    height: 91.5vh;
+    width: 125vh;
+    color: white;
+    padding-right: 50px;
+}
+
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: 25px;
+}
+
+.conteudo h1{
+    text-align: end;
+    font-size: 32px;
+}
+.conteudo p{
+    text-align: justify;
+    width: 95%;
+    font-size: 18px;
+    margin-top: 0;
 }

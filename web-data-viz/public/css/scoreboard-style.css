@@ -72,8 +72,8 @@ body {
 .dashboard .container {
   display: flex;
   background-color: white;
-  width: 1200px;
-  height: 600px;
+  width: 160vh;
+  height: 70vh;
   align-items: center;
   flex-direction: row;
   padding: 50px;
@@ -100,7 +100,7 @@ body {
 
 }
 
-.usuario{
+.usuario {
   background-image: url(../assets/img/usuario.png);
   background-size: cover;
   width: 110px;

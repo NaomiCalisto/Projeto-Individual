@@ -168,7 +168,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 50px;
+    font-size: 70px;
 }
 
 .prev {
@@ -339,22 +339,6 @@ body {
     text-decoration: none;
     color: black;
     box-shadow: inset -4px -4px 0px 0px gray;
-}
-
-.jogo .container .container-menor .botao {
-    align-self: baseline;
-    background: white;
-    display: inline-flex;
-    position: relative;
-    text-align: center;
-    font-size: 30px;
-    padding: 20px;
-    font-family: "Silkscreen", cursive;
-    text-decoration: none;
-    color: black;
-    box-shadow: inset -4px -4px 0px 0px gray;
-    margin-top: 15px;
-    align-self: center;
 }
 
 .footer .criadora .botao {
