@@ -12,7 +12,7 @@
     <title>Astro Cleanup</title>
 </head>
 
-<body>
+<body onload="apagarSession()">
     <!-- header -->
     <div class="header">
         <div class="container">
@@ -49,6 +49,7 @@
             <div class="carrossel">
                 <div class="carousel-wrapper">
                     <div class="button prev" onclick="moveSlide(-1)"><</div>
+
                             <div class="carousel">
                                 <div class="carousel-container">
                                     <img class="carousel-item" src="./assets/img/foguete.png" id="foguete"
@@ -64,100 +65,110 @@
                                         data-descricao="Os astronautas podem perder ferramentas ou outros objetos durante seus passeios espaciais. Em 2008, por exemplo, escapou das mãos da astronauta Heidemarie Stefanyshyn-Piper uma caixa de ferramentas, que se desintegrou ao entrar na atmosfera após quase um ano e depois de ter dado mais de 4.000 voltas ao redor da Terra.">
                                 </div>
                             </div>
+
                             <div class="button next" onclick="moveSlide(1)">></div>
                     </div>
                 </div>
             </div>
             <div class="descricao" id="descricao"></div>
         </div>
-
-        <!-- Sobre -->
-        <div class="sobre" id="sobre">
-            <div class="container">
-                <h1>Astro Cleanup</h1>
-                <p>Um novo site, Astro Cleanup, está sendo desenvolvido para lidar com a crescente desinformação sobre a
-                    poluição espacial. Ele será uma plataforma dedicada a compartilhar informações e iniciativas que
-                    visam resolver esse problema global.</p>
-                <p>O Astro Cleanup oferecerá uma ampla gama de conteúdos, incluindo notícias, filmes e livros
-                    relacionados ao espaço, com foco na exploração espacial e no desafio do lixo espacial. O objetivo é
-                    apresentar esses temas de forma acessível e compreensível, incentivando a reflexão e a
-                    conscientização, sem exageros alarmistas.</p>
-                <p>Além disso, o site terá um forte compromisso com os Objetivos de Desenvolvimento Sustentável (ODS) da
-                    ONU, como:</p>
-                <ul>
-                    <li>12 - Consumo e produção responsáveis;</li>
-                    <li>13 - Ação contra a mudança global do clima;</li>
-                    <li>14 - Vida na água;</li>
-                    <li>15 - Vida Terrestre.</li>
-                </ul>
-                <p>Um destaque especial será dado ao ODS 12, destacando a importância de adotar práticas ecológicas na
-                    produção e eliminação de equipamentos espaciais, como satélites, para reduzir a poluição espacial e
-                    proteger nosso ambiente cósmico.</p>
-            </div>
-            <div class="eddie-acenando"></div>
+    </div>
+    
+    <!-- Sobre -->
+    <div class="sobre" id="sobre">
+        <div class="container">
+            <h1>Astro Cleanup</h1>
+            <p>Um novo site, Astro Cleanup, está sendo desenvolvido para lidar com a crescente desinformação
+                sobre a
+                poluição espacial. Ele será uma plataforma dedicada a compartilhar informações e iniciativas que
+                visam resolver esse problema global.</p>
+            <p>O Astro Cleanup oferecerá uma ampla gama de conteúdos, incluindo notícias, filmes e livros
+                relacionados ao espaço, com foco na exploração espacial e no desafio do lixo espacial. O
+                objetivo é
+                apresentar esses temas de forma acessível e compreensível, incentivando a reflexão e a
+                conscientização, sem exageros alarmistas.</p>
+            <p>Além disso, o site terá um forte compromisso com os Objetivos de Desenvolvimento Sustentável
+                (ODS) da
+                ONU, como:</p>
+            <ul>
+                <li>12 - Consumo e produção responsáveis;</li>
+                <li>13 - Ação contra a mudança global do clima;</li>
+                <li>14 - Vida na água;</li>
+                <li>15 - Vida Terrestre.</li>
+            </ul>
+            <p>Um destaque especial será dado ao ODS 12, destacando a importância de adotar práticas ecológicas
+                na
+                produção e eliminação de equipamentos espaciais, como satélites, para reduzir a poluição
+                espacial e
+                proteger nosso ambiente cósmico.</p>
         </div>
+        <div class="eddie-acenando"></div>
+    </div>
 
-        <!-- Footer -->
-        <div class="footer" id="criadora">
-            <div class="criadora">
-                <p>Gostaria de conhecer mais sobre a criadora? Acesse aqui!</p>
-                <a href="criadora.html" class="botao">Conheça-me</a>
-            </div>
-            <div class="container">
-                <div class="container-menor">
-                    <div class="planeta-ods-redes">
-                        <div class="redes">
-                            <div class="social"><img src=""></div>
-                            <div class="social"><img src=""></div>
-                            <div class="social"><img src=""></div>
+    <!-- Footer -->
+    <div class="footer" id="criadora">
+        <div class="criadora">
+            <p>Gostaria de conhecer mais sobre a criadora? Acesse aqui!</p>
+            <a href="criadora.html" class="botao">Conheça-me</a>
+        </div>
+        <div class="container">
+            <div class="container-menor">
+                <div class="planeta-ods-redes">
+                    <div class="redes">
+                        <div class="social"><img src=""></div>
+                        <div class="social"><img src=""></div>
+                        <div class="social"><img src=""></div>
+                    </div>
+                    <div class="planeta"></div>
+                    <div class="ods">
+                        <p>Esse projeto promove:</p>
+                        <div class="row">
+                            <img src="./assets/img/ods/SDG-12.svg">
+                            <img src="./assets/img/ods/SDG-13.svg">
                         </div>
-                        <div class="planeta"></div>
-                        <div class="ods">
-                            <p>Esse projeto promove:</p>
-                            <div class="row">
-                                <img src="./assets/img/ods/SDG-12.svg">
-                                <img src="./assets/img/ods/SDG-13.svg">
-                            </div>
-                            <div class="row">
-                                <img src="./assets/img/ods/SDG-14.svg">
-                                <img src="./assets/img/ods/SDG-15.svg">
-                            </div>
+                        <div class="row">
+                            <img src="./assets/img/ods/SDG-14.svg">
+                            <img src="./assets/img/ods/SDG-15.svg">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <script>
-            const container = document.querySelector('.carousel-container');
-            const slides = Array.from(container.children);
-            const slideWidth = slides[0].offsetWidth + 20;
-
-            function moveSlide(direction) {
-                if (direction === 1) {
-                    container.appendChild(container.firstElementChild);
-                } else {
-                    container.insertBefore(container.lastElementChild, container.firstElementChild);
-                }
-
-                container.style.transition = 'none';
-                container.style.transform = 'none';
-            }
-
-            const descricao = document.getElementById('descricao');
-            const items = document.querySelectorAll('.carousel-item');
-
-            items.forEach(item => {
-                item.addEventListener('mouseover', () => {
-                    descricao.textContent = item.getAttribute('data-descricao');
-                    descricao.style.display = 'block';
-                });
-
-                item.addEventListener('mouseout', () => {
-                    descricao.style.display = 'none';
-                });
-            });
-        </script>
+    </div>
 </body>
 
 </html>
+<script>
+    function apagarSession() {
+        sessionStorage.clear();
+    }
+
+    const container = document.querySelector('.carousel-container');
+    const slides = Array.from(container.children);
+    const slideWidth = slides[0].offsetWidth + 20;
+
+    function moveSlide(direction) {
+        if (direction === 1) {
+            container.appendChild(container.firstElementChild);
+        } else {
+            container.insertBefore(container.lastElementChild, container.firstElementChild);
+        }
+
+        container.style.transition = 'none';
+        container.style.transform = 'none';
+    }
+
+    const descricao = document.getElementById('descricao');
+    const items = document.querySelectorAll('.carousel-item');
+
+    items.forEach(item => {
+        item.addEventListener('mouseover', () => {
+            descricao.textContent = item.getAttribute('data-descricao');
+            descricao.style.display = 'block';
+        });
+
+        item.addEventListener('mouseout', () => {
+            descricao.style.display = 'none';
+        });
+    });
+</script>

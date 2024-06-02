@@ -130,7 +130,6 @@ body {
 .carousel {
     display: flex;
     width: 1230px;
-    /* 3 items * (100px + 20px margin) */
     overflow: hidden;
     margin: 0 auto;
 }

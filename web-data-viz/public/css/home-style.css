@@ -117,8 +117,7 @@ body {
 
 .carousel {
     display: flex;
-    width: 860px;
-    /* 3 items * (100px + 20px margin) */
+    width: 740px;
     overflow: hidden;
     margin: 0 auto;
 }
@@ -129,13 +128,13 @@ body {
 }
 
 .carousel-item {
-    background-color: #00061c83;
     margin-right: 20px;
     flex: 0 0 100px;
     height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 135px;
 }
 
 .carousel-item:hover {
