@@ -7,8 +7,8 @@
 
     <link rel="stylesheet" href="./css/cadastro-style.css">
 
-     <!-- icon -->
-     <link rel="shortcut icon" href="./assets/img/logo.png">
+    <!-- icon -->
+    <link rel="shortcut icon" href="./assets/img/logo.png">
 
     <title>Astro Cleanup</title>
 </head>
@@ -17,7 +17,9 @@
     <!-- header -->
     <div class="header">
         <div class="container">
-            <a href="index.html"><h1 class="marca">Astro Cleanup</h1></a>
+            <a href="index.html">
+                <h1 class="marca">Astro Cleanup</h1>
+            </a>
 
             <ul class="navbar">
                 <li>
@@ -45,29 +47,33 @@
             <div class="conteudo">
                 <div class="nomes">
                     <div class="nome">
+                        <div id="errado_nome" class="errado">X</div>
                         <span>Nome:</span>
                         <input type="text" id="inp_nome">
                     </div>
 
                     <div class="sobrenome">
+                        <div id="errado_sobrenome" class="errado">X</div>
                         <span>Sobrenome:</span>
                         <input type="text" id="inp_sobrenome">
                     </div>
                 </div>
 
                 <div class="email">
+                    <div id="errado_email" class="errado">X</div>
                     <span>E-mail:</span>
                     <input type="text" id="inp_email">
                 </div>
 
                 <div class="senhas">
-
                     <div class="senha">
+                        <div id="errado_senha" class="errado">X</div>
                         <span>Senha:</span>
                         <input type="password" id="inp_senha">
                     </div>
 
                     <div class="confSenha">
+                        <div id="errado_senhaConf" class="errado">X</div>
                         <span>Confirmar senha:</span>
                         <input type="password" id="inp_confSenha">
                     </div>
@@ -98,6 +104,7 @@
 
 <script>
     function cadastrar() {
+        var valido = true
 
         var nomeVar = inp_nome.value;
         var sobrenomeVar = inp_sobrenome.value;
@@ -105,37 +112,120 @@
         var senhaVar = inp_senha.value;
         var confSenhaVar = inp_confSenha.value;
 
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nomeVar,
-                sobrenomeServer: sobrenomeVar,
-                emailServer: emailVar,
-                senhaServer: senhaVar,
-            }),
-        })
-            .then(function (resposta) {
-                console.log("resposta: ", resposta);
+        var nome = document.getElementById('errado_nome')
+        var sobrenome = document.getElementById('errado_sobrenome')
+        var email = document.getElementById('errado_email')
+        var senha = document.getElementById('errado_senha')
+        var senhaConf = document.getElementById('errado_senhaConf')
 
-                if (resposta.ok) {
-                    window.location = "./login.html";
-                    limparFormulario();
 
-                } else {
-                    throw "Houve um erro ao tentar realizar o cadastro!";
-                }
+
+        if (nomeVar == '' || sobrenomeVar == '' || emailVar == '' || senhaVar == '' || confSenhaVar == '') {
+            alert('Preencha todos os campos')
+
+            if(nomeVar == ''){
+                nome.style.display = 'flex'
+
+            }
+            if(sobrenomeVar == ''){
+                sobrenome.style.display = 'flex'
+                
+            }
+            if(emailVar == ''){
+                email.style.display = 'flex'
+                
+            }
+            if(senhaVar == ''){
+                senha.style.display = 'flex'
+                
+            }
+            if(confSenhaVar == ''){
+                senhaConf.style.display = 'flex'
+                
+            } 
+
+            valido = false
+
+        } else {
+
+        }
+
+        if (emailVar.indexOf('@') < 0) {
+            alert('Insira um email válido')
+            email.style.display = 'flex'
+            valido = false
+
+        } else {
+            email.style.display = 'none'
+
+        }
+
+        if (senhaVar.length < 8) {
+            alert('A senha deve ter no mínimo 8 caracteres')
+            senha.style.display = 'flex'
+            valido = false
+
+        } else {
+            senha.style.display = 'none'
+
+        }
+
+        if (senhaVar != confSenhaVar) {
+            alert('As senhas não coincidem')
+            senha.style.display = 'flex'
+            senhaConf.style.display = 'flex'
+            valido = false
+
+        } else {
+            senha.style.display = 'none'
+            senhaConf.style.display = 'none'
+            
+        }
+
+        if (valido == true) {
+            alert('funfou')
+            nome.style.display = 'none'
+            sobrenome.style.display = 'none'
+            email.style.display = 'none'
+            senha.style.display = 'none'
+            senha.style.display = 'none'
+            senhaConf.style.display = 'none'
+
+
+
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    nomeServer: nomeVar,
+                    sobrenomeServer: sobrenomeVar,
+                    emailServer: emailVar,
+                    senhaServer: senhaVar,
+                }),
             })
-            .catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
 
-            });
+                    if (resposta.ok) {
+                        window.location = "./login.html";
+                        limparFormulario();
 
-        return false;
+                    } else {
+                        throw "Houve um erro ao tentar realizar o cadastro!";
+                    }
+                })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+
+                });
+
+            return false;
+        }
+
     }
 
 </script>
