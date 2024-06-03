@@ -59,6 +59,29 @@ body {
     font-size: 20px;
 }
 
+/* Avaliação */
+.avaliacao {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    width: 400px;
+    height: 355px;
+    align-items: center;
+    justify-content: center;
+}
+
+.estrelas {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.estrelas img {
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+}
+
 /* Bloco */
 .bloco {
     display: flex;
@@ -79,7 +102,6 @@ body {
     background-image: url(../assets/img/mensagem.png);
     background-size: cover;
     position: absolute;
-    /* border: red solid; */
     width: 990px;
     height: 296px;
     margin-left: 15px;

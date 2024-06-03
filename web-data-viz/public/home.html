@@ -43,6 +43,19 @@
 
     <!-- Bloco -->
     <div class="bloco">
+
+        <div class="avaliacao">
+            <div class="estrelas">
+                <img src="./assets/img/estrela.png" onclick="avaliar(1)">
+                <img src="./assets/img/estrela.png" onclick="avaliar(2)">
+                <img src="./assets/img/estrela.png" onclick="avaliar(3)">
+                <img src="./assets/img/estrela.png" onclick="avaliar(4)">
+                <img src="./assets/img/estrela.png" onclick="avaliar(5)">
+            </div>
+
+            <p>Avalie nosso site!</p>
+        </div>
+
         <div class="container">
             <div class="mensagem"></div>
 
@@ -61,148 +74,197 @@
 
                 <div class="carousel-wrapper">
                     <div class="button prev" onclick="moveSlide(-1, 'filmes')"><</div>
-                    <div class="carousel" id="filmes">
-                        <div class="carousel-container">
-                            <a href="https://www.adorocinema.com/filmes/filme-274158/">
-                                <img class="carousel-item" src="./assets/img/filmes/2067.jpg"></a>
-                            <a href="https://www.adorocinema.com/filmes/filme-178496/">
-                                <img class="carousel-item" src="./assets/img/filmes/Gravity.jpg"></a>
-                            <a href="https://www.google.com/search?q=Orbiter+9">
-                                <img class="carousel-item" src="./assets/img/filmes/Orbiter.jpg"></a>
-                            <a href="https://www.google.com/search?q=Space+Junk+3D">
-                                <img class="carousel-item" src="./assets/img/filmes/Space Junk 3D.jpg"></a>
-                            <a href="https://www.adorocinema.com/filmes/filme-207781/">
-                                <img class="carousel-item" src="./assets/img/filmes/The Last Days on Mart.jpg"></a>
-                            <a href="https://www.adorocinema.com/filmes/filme-123734/">
-                                <img class="carousel-item" src="./assets/img/filmes/WALL-E.webp"></a>
+                            <div class="carousel" id="filmes">
+                                <div class="carousel-container">
+                                    <a href="https://www.adorocinema.com/filmes/filme-274158/">
+                                        <img class="carousel-item" src="./assets/img/filmes/2067.jpg"></a>
+                                    <a href="https://www.adorocinema.com/filmes/filme-178496/">
+                                        <img class="carousel-item" src="./assets/img/filmes/Gravity.jpg"></a>
+                                    <a href="https://www.google.com/search?q=Orbiter+9">
+                                        <img class="carousel-item" src="./assets/img/filmes/Orbiter.jpg"></a>
+                                    <a href="https://www.google.com/search?q=Space+Junk+3D">
+                                        <img class="carousel-item" src="./assets/img/filmes/Space Junk 3D.jpg"></a>
+                                    <a href="https://www.adorocinema.com/filmes/filme-207781/">
+                                        <img class="carousel-item"
+                                            src="./assets/img/filmes/The Last Days on Mart.jpg"></a>
+                                    <a href="https://www.adorocinema.com/filmes/filme-123734/">
+                                        <img class="carousel-item" src="./assets/img/filmes/WALL-E.webp"></a>
+                                </div>
+                            </div>
+                            <div class="button next" onclick="moveSlide(1, 'filmes')">></div>
+                    </div>
+                </div>
+
+                <div class="carrossel">
+                    <div class="titulo">
+                        <p>Livros</p>
+                    </div>
+                    <div class="carousel-wrapper">
+                        <div class="button prev" onclick="moveSlide(-1, 'livros')"><</div>
+                                <div class="carousel" id="livros">
+                                    <div class="carousel-container">
+                                        <a href="https://pt.wikipedia.org/wiki/Artemis_(romance)">
+                                            <img class="carousel-item" src="./assets/img/livros/Artemis.jpg"></a>
+                                        <a href="https://en.wikipedia.org/wiki/Packing_for_Mars">
+                                            <img class="carousel-item"
+                                                src="./assets/img/livros/Packing for Mars.jpg"></a>
+                                        <a
+                                            href="https://www.amazon.com/Space-Debris-Models-Analysis-Springer/dp/354025448X">
+                                            <img class="carousel-item" src="./assets/img/livros/Space Debris.jpg"></a>
+                                        <a
+                                            href="https://www.amazon.com/Space-Junk-Dangers-Polluting-Earths/dp/1467756008">
+                                            <img class="carousel-item" src="./assets/img/livros/Space Junk.jpg"></a>
+                                        <a
+                                            href="https://www.amazon.com/Orbital-Perspective-Lessons-Picture-Journey/dp/1626562466">
+                                            <img class="carousel-item"
+                                                src="./assets/img/livros/The Orbital Perspective.jpg"></a>
+                                        <a
+                                            href="https://pt.wikipedia.org/wiki/O_Problema_dos_Tr%C3%AAs_Corpos_(romance)">
+                                            <img class="carousel-item"
+                                                src="./assets/img/livros/The Three Body Problem.jpg"></a>
+                                    </div>
+                                </div>
+                                <div class="button next" onclick="moveSlide(1, 'livros')">></div>
                         </div>
                     </div>
-                    <div class="button next" onclick="moveSlide(1, 'filmes')">></div>
-                </div>
-            </div>
 
-            <div class="carrossel">
-                <div class="titulo">
-                    <p>Livros</p>
-                </div>
-                <div class="carousel-wrapper">
-                    <div class="button prev" onclick="moveSlide(-1, 'livros')"><</div>
-                    <div class="carousel" id="livros">
-                        <div class="carousel-container">
-                            <a href="https://pt.wikipedia.org/wiki/Artemis_(romance)">
-                                <img class="carousel-item" src="./assets/img/livros/Artemis.jpg"></a>
-                            <a href="https://en.wikipedia.org/wiki/Packing_for_Mars">
-                                <img class="carousel-item" src="./assets/img/livros/Packing for Mars.jpg"></a>
-                            <a href="https://www.amazon.com/Space-Debris-Models-Analysis-Springer/dp/354025448X">
-                                <img class="carousel-item" src="./assets/img/livros/Space Debris.jpg"></a>
-                            <a href="https://www.amazon.com/Space-Junk-Dangers-Polluting-Earths/dp/1467756008">
-                                <img class="carousel-item" src="./assets/img/livros/Space Junk.jpg"></a>
-                            <a href="https://www.amazon.com/Orbital-Perspective-Lessons-Picture-Journey/dp/1626562466">
-                                <img class="carousel-item" src="./assets/img/livros/The Orbital Perspective.jpg"></a>
-                            <a href="https://pt.wikipedia.org/wiki/O_Problema_dos_Tr%C3%AAs_Corpos_(romance)">
-                                <img class="carousel-item" src="./assets/img/livros/The Three Body Problem.jpg"></a>
+                    <div class="carrossel">
+                        <div class="titulo">
+                            <p>Artigos</p>
                         </div>
-                    </div>
-                    <div class="button next" onclick="moveSlide(1, 'livros')">></div>
-                </div>
-            </div>
-
-            <div class="carrossel">
-                <div class="titulo">
-                    <p>Artigos</p>
-                </div>
-                <div class="carousel-wrapper">
-                    <div class="button prev" onclick="moveSlide(-1, 'artigos')"><</div>
-                    <div class="carousel" id="artigos">
-                        <div class="carousel-container">
-                            <a href="https://abrasat.org.br/2020/11/17/sustentabilidade-espacial-a-preservacao-do-espaco-importa/">
-                                <img class="carousel-item" src="./assets/img/artigos/Abrasat.png"></a>
-                            <a href="https://bdta.ufra.edu.br/jspui/handle/123456789/1440">
-                                <img class="carousel-item" src="./assets/img/artigos/BDTA.png"></a>
-                            <a href="https://www.comciencia.br/detritos-espaciais-geram-impactos-a-geopolitica-aeroespacial/">
-                                <img class="carousel-item" src="./assets/img/artigos/Com Ciência.png"></a>
-                            <a href="https://www.ecycle.com.br/turismo-espacial/">
-                                <img class="carousel-item" src="./assets/img/artigos/eCycle.png"></a>
-                            <a href="https://www.invivo.fiocruz.br/sustentabilidade/lixo-espacial/">
-                                <img class="carousel-item" src="./assets/img/artigos/Fiocruz.png"></a>
-                            <a href="https://www.iberdrola.com/sustentabilidade/lixo-espacial">
-                                <img class="carousel-item" src="./assets/img/artigos/Iberdrola.png"></a>
-                            <a href="https://olhardigital.com.br/2024/03/07/ciencia-e-espaco/queda-de-satelite-europeu-desativado-alerta-sobre-problema-do-lixo-espacial/">
-                                <img class="carousel-item" src="./assets/img/artigos/Olhar Digital.png"></a>
-                            <a href="https://www.space.com/space-sustainability-rating-tackles-space-junk">
-                                <img class="carousel-item" src="./assets/img/artigos/SPACE.png"></a>
-                        </div>
-                    </div>
-                    <div class="button next" onclick="moveSlide(1, 'artigos')">></div>
-                </div>
-            </div>
-
-            <div class="jogo">
-                <div class="container">
-                    <h1>TRASH DESTROYER</h1>
-                    <p>Que tal tentar combater esse desafio você mesmo?</p>
-                    <p>Pontue o quanto puder e fique entre os melhores destruindo os lixos espaciais!</p>
-
-                    <a href="jogo.html" class="botao">JOGAR</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <div class="footer">
-        <div class="container">
-            <div class="container-menor">
-                <div class="planeta-ods-redes">
-                    <div class="redes">
-                        <a href="https://github.com/NaomiCalisto/"><img class="social" src="./assets/img/redes/github.png"></a>
-                        <a href="https://www.instagram.com/nao.yumii/"><img class="social" src="./assets/img/redes/instagram.jpg"></a>
-                        <a href="https://www.sptech.school/"><img class="social" src="./assets/img/redes/sptech.png"></a>
-                    </div>
-                    <div class="planeta"></div>
-                    <div class="ods">
-                        <p>Esse projeto promove:</p>
-                        <div class="row">
-                            <img src="./assets/img/ods/SDG-12.svg">
-                            <img src="./assets/img/ods/SDG-13.svg">
+                        <div class="carousel-wrapper">
+                            <div class="button prev" onclick="moveSlide(-1, 'artigos')"><</div>
+                                    <div class="carousel" id="artigos">
+                                        <div class="carousel-container">
+                                            <a
+                                                href="https://abrasat.org.br/2020/11/17/sustentabilidade-espacial-a-preservacao-do-espaco-importa/">
+                                                <img class="carousel-item" src="./assets/img/artigos/Abrasat.png"></a>
+                                            <a href="https://bdta.ufra.edu.br/jspui/handle/123456789/1440">
+                                                <img class="carousel-item" src="./assets/img/artigos/BDTA.png"></a>
+                                            <a
+                                                href="https://www.comciencia.br/detritos-espaciais-geram-impactos-a-geopolitica-aeroespacial/">
+                                                <img class="carousel-item"
+                                                    src="./assets/img/artigos/Com Ciência.png"></a>
+                                            <a href="https://www.ecycle.com.br/turismo-espacial/">
+                                                <img class="carousel-item" src="./assets/img/artigos/eCycle.png"></a>
+                                            <a href="https://www.invivo.fiocruz.br/sustentabilidade/lixo-espacial/">
+                                                <img class="carousel-item" src="./assets/img/artigos/Fiocruz.png"></a>
+                                            <a href="https://www.iberdrola.com/sustentabilidade/lixo-espacial">
+                                                <img class="carousel-item" src="./assets/img/artigos/Iberdrola.png"></a>
+                                            <a
+                                                href="https://olhardigital.com.br/2024/03/07/ciencia-e-espaco/queda-de-satelite-europeu-desativado-alerta-sobre-problema-do-lixo-espacial/">
+                                                <img class="carousel-item"
+                                                    src="./assets/img/artigos/Olhar Digital.png"></a>
+                                            <a
+                                                href="https://www.space.com/space-sustainability-rating-tackles-space-junk">
+                                                <img class="carousel-item" src="./assets/img/artigos/SPACE.png"></a>
+                                        </div>
+                                    </div>
+                                    <div class="button next" onclick="moveSlide(1, 'artigos')">></div>
+                            </div>
                         </div>
 
-                        <div class="row">
-                            <img src="./assets/img/ods/SDG-14.svg">
-                            <img src="./assets/img/ods/SDG-15.svg">
+                        <div class="jogo">
+                            <div class="container">
+                                <h1>TRASH DESTROYER</h1>
+                                <p>Que tal tentar combater esse desafio você mesmo?</p>
+                                <p>Pontue o quanto puder e fique entre os melhores destruindo os lixos espaciais!</p>
+
+                                <a href="jogo.html" class="botao">JOGAR</a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-            </div>
-        </div>
-    </div>
+                <!-- Footer -->
+                <div class="footer">
+                    <div class="container">
+                        <div class="container-menor">
+                            <div class="planeta-ods-redes">
+                                <div class="redes">
+                                    <a href="https://github.com/NaomiCalisto/"><img class="social"
+                                            src="./assets/img/redes/github.png"></a>
+                                    <a href="https://www.instagram.com/nao.yumii/"><img class="social"
+                                            src="./assets/img/redes/instagram.jpg"></a>
+                                    <a href="https://www.sptech.school/"><img class="social"
+                                            src="./assets/img/redes/sptech.png"></a>
+                                </div>
+                                <div class="planeta"></div>
+                                <div class="ods">
+                                    <p>Esse projeto promove:</p>
+                                    <div class="row">
+                                        <img src="./assets/img/ods/SDG-12.svg">
+                                        <img src="./assets/img/ods/SDG-13.svg">
+                                    </div>
+
+                                    <div class="row">
+                                        <img src="./assets/img/ods/SDG-14.svg">
+                                        <img src="./assets/img/ods/SDG-15.svg">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
 
 
 </body>
+
 </html>
 
-    <script>
-        var usuario = sessionStorage.NOME_USUARIO
-        nomeUsuario.innerHTML = `
+<script>
+    var usuarioVar = sessionStorage.ID_USUARIO
+    
+    var notaVar = 0
+    function avaliar(valor) {
+        notaVar = valor
+        const confirmacao = confirm(`Gostaria de Avaliar com ${notaVar} estrelas?`)
+
+        if (confirmacao == true) {
+            // Enviar a nota atual para o banco de dados
+            fetch("/nota/avaliar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    usuarioServer: usuarioVar, // Enviando o id do usuario
+                    notaServer: notaVar // Enviando a nota atual
+                }),
+            }).then(response => {
+                if (response.ok) {
+                    // Se necessário, processar a resposta aqui
+                    console.log('Nota cadastrada com sucesso!');
+                } else {
+                    console.error('Erro ao cadastrar a nota.');
+                }
+            }).catch(error => {
+                console.error('Erro ao enviar a requisição:', error);
+            });
+        }
+    }
+
+    var usuario = sessionStorage.NOME_USUARIO
+    nomeUsuario.innerHTML = `
         <p>Olá Patrulheiro(a) ${usuario}!</p>
 
         <p>Que tal ver algumas interessantíssimas fontes sobre um espaço mais sustentável? <br>
         Navegue por filmes, livros e até mesmo notícias</p>`
 
-        function moveSlide(direction, id) {
-            const container = document.querySelector(`#${id} .carousel-container`);
-            if (direction === 1) {
-                container.appendChild(container.firstElementChild);
-            } else {
-                container.insertBefore(container.lastElementChild, container.firstElementChild);
-            }
-
-            container.style.transition = 'none';
-            container.style.transform = 'none';
+    function moveSlide(direction, id) {
+        const container = document.querySelector(`#${id} .carousel-container`);
+        if (direction === 1) {
+            container.appendChild(container.firstElementChild);
+        } else {
+            container.insertBefore(container.lastElementChild, container.firstElementChild);
         }
 
-        function apagarSession() {
-            sessionStorage.clear();
-        }
-    </script>
+        container.style.transition = 'none';
+        container.style.transform = 'none';
+    }
+
+    function apagarSession() {
+        sessionStorage.clear();
+    }
+</script>

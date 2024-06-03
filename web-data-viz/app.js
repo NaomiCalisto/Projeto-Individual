@@ -19,6 +19,7 @@ var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
 var medidasRouter = require("./src/routes/medidas");
 var scoreRouter = require("./src/routes/score");
+var notaRouter = require("./src/routes/nota");
 
 
 app.use(express.json());
@@ -31,6 +32,7 @@ app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/medidas", medidasRouter);
 app.use("/score", scoreRouter);
+app.use("/nota", notaRouter);
 
 
 
