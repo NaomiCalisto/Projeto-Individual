@@ -123,26 +123,45 @@
         if (nomeVar == '' || sobrenomeVar == '' || emailVar == '' || senhaVar == '' || confSenhaVar == '') {
             alert('Preencha todos os campos')
 
-            if(nomeVar == ''){
+            if (nomeVar == '') {
                 nome.style.display = 'flex'
 
+            } else {
+                nome.style.display = 'none'
+
             }
-            if(sobrenomeVar == ''){
+
+            if (sobrenomeVar == '') {
                 sobrenome.style.display = 'flex'
-                
+
+            } else {
+                sobrenome.style.display = 'none'
+
             }
-            if(emailVar == ''){
+
+            if (emailVar == '') {
                 email.style.display = 'flex'
-                
+
+            } else {
+                email.style.display = 'none'
+
             }
-            if(senhaVar == ''){
+
+            if (senhaVar == '') {
                 senha.style.display = 'flex'
-                
+
+            } else {
+                senha.style.display = 'none'
+
             }
-            if(confSenhaVar == ''){
+
+            if (confSenhaVar == '') {
                 senhaConf.style.display = 'flex'
-                
-            } 
+
+            } else {
+                senhaConf.style.display = 'none'
+
+            }
 
             valido = false
 
@@ -179,7 +198,7 @@
         } else {
             senha.style.display = 'none'
             senhaConf.style.display = 'none'
-            
+
         }
 
         if (valido == true) {
