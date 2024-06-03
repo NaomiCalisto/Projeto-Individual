@@ -15,7 +15,6 @@
 
 <body>
     <!-- header -->
-    <!-- header -->
     <div class="header">
         <div class="container">
             <a href="index.html"><h1 class="marca">Astro Cleanup</h1></a>
@@ -45,11 +44,13 @@
             <h1>ENTRE</h1>
             <div class="conteudo">
                 <div class="email">
+                    <div id="errado_email" class="errado">X</div>
                     <span>E-mail: <br></span>
                     <input type="text" id="inp_email">
                 </div>
 
                 <div class="senha">
+                    <div id="errado_senha" class="errado">X</div>
                     <span>Senha: <br></span>
                     <input type="password" id="inp_senha">
                 </div>
@@ -78,6 +79,9 @@
 
 <script>
     function entrar() {
+        var email = document.getElementById('errado_email')
+        var senha = document.getElementById('errado_senha')
+
         var emailVar = inp_email.value;
         var senhaVar = inp_senha.value;
 
@@ -110,6 +114,8 @@
                 });
 
             } else {
+                email.style.display = 'flex'
+                senha.style.display = 'flex'
 
                 console.log("Houve um erro ao tentar realizar o login!");
 
