@@ -38,17 +38,29 @@ app.use("/nota", notaRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`
-    ##   ##  ######   #####             ####       ##     ######     ##              ##  ##    ####    ######  
-    ##   ##  ##       ##  ##            ## ##     ####      ##      ####             ##  ##     ##         ##  
-    ##   ##  ##       ##  ##            ##  ##   ##  ##     ##     ##  ##            ##  ##     ##        ##   
-    ## # ##  ####     #####    ######   ##  ##   ######     ##     ######   ######   ##  ##     ##       ##    
-    #######  ##       ##  ##            ##  ##   ##  ##     ##     ##  ##            ##  ##     ##      ##     
-    ### ###  ##       ##  ##            ## ##    ##  ##     ##     ##  ##             ####      ##     ##      
-    ##   ##  ######   #####             ####     ##  ##     ##     ##  ##              ##      ####    ######  
-    \n\n\n                                                                                                 
-    Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar .: http://${HOST_APP}:${PORTA_APP} :. \n\n
-    Você está rodando sua aplicação em ambiente de .:${process.env.AMBIENTE_PROCESSO}:. \n\n
-    \tSe .:desenvolvimento:. você está se conectando ao banco local. \n
-    \tSe .:producao:. você está se conectando ao banco remoto. \n\n
-    \t\tPara alterar o ambiente, comente ou descomente as linhas 1 ou 2 no arquivo 'app.js'\n\n`);
-});
+     _______  _______  _______  ______    _______                  
+    |   _   ||       ||       ||    _ |  |       |                 
+    |  |_|  ||  _____||_     _||   | ||  |   _   |                 
+    |       || |_____   |   |  |   |_||_ |  | |  |                 
+    |       ||_____  |  |   |  |    __  ||  |_|  |                 
+    |   _   | _____| |  |   |  |   |  | ||       |                 
+    |__| |__||_______|  |___|  |___|  |_||_______|                 
+     _______  ___      _______  _______  __    _  __   __  _______ 
+    |       ||   |    |       ||   _   ||  |  | ||  | |  ||       |
+    |       ||   |    |    ___||  |_|  ||   |_| ||  | |  ||    _  |
+    |       ||   |    |   |___ |       ||       ||  |_|  ||   |_| |
+    |      _||   |___ |    ___||       ||  _    ||       ||    ___|
+    |     |_ |       ||   |___ |   _   || | |   ||       ||   |    
+    |_______||_______||_______||__| |__||_|  |__||_______||___| 
+                                                                                         
+    Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar .: http://${HOST_APP}:${PORTA_APP} :. 
+
+    Você está rodando sua aplicação em ambiente de .:${process.env.AMBIENTE_PROCESSO}:. 
+
+    \tSe .:desenvolvimento:. você está se conectando ao banco local. 
+    \tSe .:producao:. você está se conectando ao banco remoto. 
+
+    \t\tPara alterar o ambiente, comente ou descomente as linhas 1 ou 2 no arquivo 'app.js'
+`);});
+
+

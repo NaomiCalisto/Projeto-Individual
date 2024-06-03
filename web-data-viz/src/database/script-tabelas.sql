@@ -14,7 +14,7 @@ create table Usuario(
 	nome varchar(45),
 	sobrenome varchar(45),
 	email varchar(45) unique,
-	senha varchar(45),
+    senha varchar(45),
 	diaInscricao datetime default current_timestamp);
     
 create table Scoreboard(
@@ -23,4 +23,9 @@ create table Scoreboard(
 	momento datetime default current_timestamp,
     fkUsuario int,
 		foreign key (fkUsuario) references Usuario(idUsuario));
-    
+        
+create table Avaliacao(
+	idAvaliacao int auto_increment,
+    fkUsuario int unique,
+     primary key (idAvaliacao, fkUsuario),
+	nota int);
