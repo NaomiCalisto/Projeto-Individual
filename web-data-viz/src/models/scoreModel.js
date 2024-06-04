@@ -9,7 +9,7 @@ function aplicar(score, idUsuario) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO Scoreboard (score, momento, fkUsuario) VALUES (${score}, default, ${idUsuario});
+        insert Scoreboard (score, momento, fkUsuario) values (${score}, default, ${idUsuario});
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);

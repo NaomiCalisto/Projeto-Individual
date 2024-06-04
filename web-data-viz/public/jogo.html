@@ -154,15 +154,14 @@
         }
     }
 
-    // Função para iniciar o jogo
+
     function startGame() {
         resetGame();
-        // gameArea.style.cursor = 'url(./assets/img/ponteiro.cur), auto';
         blocoTryagain.style.display = 'none';
         blocoStart.style.display = 'none';
-        gameInterval = setInterval(createMeteor, 500); // Cria um meteoro a cada 0.5 segundos
+        gameInterval = setInterval(createMeteor, 500);
 
-        // Reseta o jogo após 60 segundos
+        
         gameTimeout = setTimeout(() => {
             // Enviar o score atual para o banco de dados
             fetch("/score/aplicar", {
@@ -171,12 +170,11 @@
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    scoreServer: scoreVar, // Enviando o score atual
-                    usuarioServer: usuarioVar // Enviando o id do usuario
+                    scoreServer: scoreVar, 
+                    usuarioServer: usuarioVar
                 }),
             }).then(response => {
                 if (response.ok) {
-                    // Se necessário, processar a resposta aqui
                     console.log('Score cadastrado com sucesso!');
                 } else {
                     console.error('Erro ao cadastrar score.');
@@ -189,8 +187,8 @@
             resetGame();
             blocoTryagain.style.display = 'block';
             finalScore.innerHTML = `${scoreboard[scoreboard.length - 1]}`;
-            updateScoreBoard(); // Atualiza a scoreboard
-        }, 45000); // 60 segundos
+            updateScoreBoard(); 
+        }, 45000);
     }
 
 

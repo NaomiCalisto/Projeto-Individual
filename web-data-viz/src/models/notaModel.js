@@ -8,7 +8,7 @@ function avaliar(idUsuario, nota) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        insert into Avaliacao (fkUsuario, nota) VALUES (${idUsuario}, ${nota});
+        insert into Avaliacao (fkUsuario, nota) values (${idUsuario}, ${nota});
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);

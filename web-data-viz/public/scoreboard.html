@@ -8,7 +8,6 @@
 
     <link rel="stylesheet" href="./css/scoreboard-style.css">
 
-    <!-- icon -->
     <link rel="shortcut icon" href="./assets/img/logo.png">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -61,35 +60,33 @@
 </html>
 
 <script>
-    var iconSelecionado = 'icon-usuario'; // Armazena o ID do ícone atualmente selecionado
+    var iconSelecionado = 'icon-usuario';
 
     function apagarSession() {
         sessionStorage.clear();
     }
 
+    // Exibição dos Gráficos
     function exibirGrafico(tipo) {
         var graficoUsuario = document.getElementById('myChart-usuario');
         var graficoGlobal = document.getElementById('myChart-global');
 
-        // Oculta todos os gráficos
         graficoUsuario.style.display = 'none';
         graficoGlobal.style.display = 'none';
 
-        // Remove o estilo de fundo do ícone atualmente selecionado
+    
         document.getElementById(iconSelecionado).style.backgroundColor = '';
 
-        // Exibe o gráfico correspondente ao tipo
         if (tipo === 'usuario') {
             graficoUsuario.style.display = 'block';
             obterDadosGraficoUsuario();
-            iconSelecionado = 'icon-usuario'; // Atualiza o ícone selecionado
+            iconSelecionado = 'icon-usuario';
         } else if (tipo === 'global') {
             graficoGlobal.style.display = 'block';
             obterDadosGraficoGlobal();
-            iconSelecionado = 'icon-global'; // Atualiza o ícone selecionado
+            iconSelecionado = 'icon-global';
         }
 
-        // Define o estilo de fundo do novo ícone selecionado
         document.getElementById(iconSelecionado).style.backgroundColor = 'lightgray';
     }
 
@@ -150,20 +147,20 @@
                         display: true,
                         text: 'Scoreboard Global',
                         font: {
-                            size: 16, // Tamanho da fonte do título
-                            weight: 'bold', // Deixar a fonte do título em negrito
-                            family: 'Silkscreen' // Fonte importada
+                            size: 16, 
+                            weight: 'bold', 
+                            family: 'Silkscreen'
                         },
-                        color: 'black' // Cor do texto do título
+                        color: 'black'
                     },
                     legend: {
                         labels: {
                             font: {
-                                size: 14, // Tamanho da fonte das legendas
-                                weight: 'bold', // Deixar a fonte das legendas em negrito
-                                family: 'Silkscreen' // Fonte importada
+                                size: 14,
+                                weight: 'bold',
+                                family: 'Silkscreen'
                             },
-                            color: 'black' // Cor do texto das legendas
+                            color: 'black'
                         }
                     }
                 },
@@ -171,21 +168,21 @@
                     x: {
                         ticks: {
                             font: {
-                                size: 14, // Tamanho da fonte dos rótulos do eixo X
-                                weight: 'bold', // Deixar a fonte dos rótulos do eixo X em negrito
-                                family: 'Silkscreen' // Fonte importada
+                                size: 14, 
+                                weight: 'bold', 
+                                family: 'Silkscreen' 
                             },
-                            color: 'black' // Cor do texto dos rótulos do eixo X
+                            color: 'black' 
                         }
                     },
                     y: {
                         ticks: {
                             font: {
-                                size: 12, // Tamanho da fonte dos rótulos do eixo Y
-                                weight: 'bold', // Deixar a fonte dos rótulos do eixo Y em negrito
-                                family: 'Silkscreen' // Fonte importada
+                                size: 12, 
+                                weight: 'bold',
+                                family: 'Silkscreen' 
                             },
-                            color: 'black' // Cor do texto dos rótulos do eixo Y
+                            color: 'black'
                         }
                     }
                 }
@@ -258,20 +255,20 @@
                         display: true,
                         text: 'Scoreboard Local',
                         font: {
-                            size: 16, // Tamanho da fonte do título
-                            weight: 'bold', // Deixar a fonte do título em negrito
-                            family: 'Silkscreen' // Fonte importada
+                            size: 16, 
+                            weight: 'bold', 
+                            family: 'Silkscreen' 
                         },
-                        color: 'black' // Cor do texto do título
+                        color: 'black' 
                     },
                     legend: {
                         labels: {
                             font: {
-                                size: 14, // Tamanho da fonte das legendas
-                                weight: 'bold', // Deixar a fonte das legendas em negrito
-                                family: 'Silkscreen' // Fonte importada
+                                size: 14, 
+                                weight: 'bold', 
+                                family: 'Silkscreen'
                             },
-                            color: 'black' // Cor do texto das legendas
+                            color: 'black'
                         }
                     }
                 },
@@ -279,21 +276,21 @@
                     x: {
                         ticks: {
                             font: {
-                                size: 14, // Tamanho da fonte dos rótulos do eixo X
-                                weight: 'bold', // Deixar a fonte dos rótulos do eixo X em negrito
-                                family: 'Silkscreen' // Fonte importada
+                                size: 14,
+                                weight: 'bold',
+                                family: 'Silkscreen'
                             },
-                            color: 'black' // Cor do texto dos rótulos do eixo X
+                            color: 'black' 
                         }
                     },
                     y: {
                         ticks: {
                             font: {
-                                size: 12, // Tamanho da fonte dos rótulos do eixo Y
-                                weight: 'bold', // Deixar a fonte dos rótulos do eixo Y em negrito
-                                family: 'Silkscreen' // Fonte importada
+                                size: 12,
+                                weight: 'bold', 
+                                family: 'Silkscreen'
                             },
-                            color: 'black' // Cor do texto dos rótulos do eixo Y
+                            color: 'black'
                         }
                     }
                 }
