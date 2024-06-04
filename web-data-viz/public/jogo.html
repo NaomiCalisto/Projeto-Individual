@@ -95,29 +95,24 @@
 
     let scoreboard = []
 
-    // Função para criar um meteoro
     function createMeteor() {
         const trash = document.createElement('div');
         trash.classList.add('trash');
 
-        // Posiciona o meteoro em uma posição aleatória dentro da área do jogo
         trash.style.top = Math.random() * (gameArea.offsetHeight - 40) + 'px';
         trash.style.left = Math.random() * (gameArea.offsetWidth - 40) + 'px';
 
-        // Adiciona o meteoro à área do jogo
         gameArea.appendChild(trash);
 
-        // Define o tempo de vida do meteoro
-        const trashLife = 4000; // 4 segundos
+        const trashLife = 4000;
 
-        // Remove o meteoro após o tempo de vida
         setTimeout(() => {
             if (trash.parentElement) {
                 trash.remove();
             }
         }, trashLife);
 
-        // Adiciona um evento de clique no meteoro
+       
         trash.addEventListener('click', () => {
             scoreVar += 10;
             scoreDisplay.textContent = scoreVar;
@@ -125,7 +120,7 @@
         });
     }
 
-    // Função para resetar o jogo
+
     function resetGame() {
         // Pare o intervalo de criação de meteoros se estiver ativo
         if (gameInterval) {
@@ -137,19 +132,22 @@
             clearTimeout(gameTimeout);
         }
 
-        // Limpe todos os meteoros da área do jogo
         gameArea.innerHTML = '';
-        // Resete a pontuação
+
         scoreVar = 0;
         scoreDisplay.textContent = scoreVar;
     }
 
-    // Função para atualizar a div score-board
+  
     function updateScoreBoard() {
         scoreBoardDiv.innerHTML = '';
+
         for (let i = scoreboard.length - 1; i >= 0 ; i--) {
+
             const scoreItem = document.createElement('div');
+
             scoreItem.textContent = `${scoreboard[i]}`;
+            
             scoreBoardDiv.appendChild(scoreItem);
         }
     }
@@ -163,7 +161,6 @@
 
         
         gameTimeout = setTimeout(() => {
-            // Enviar o score atual para o banco de dados
             fetch("/score/aplicar", {
                 method: "POST",
                 headers: {

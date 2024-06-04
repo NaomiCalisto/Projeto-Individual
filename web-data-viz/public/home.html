@@ -7,14 +7,13 @@
 
     <link rel="stylesheet" href="./css/home-style.css">
 
-    <!-- icon -->
     <link rel="shortcut icon" href="./assets/img/logo.png">
 
     <title>Astro Cleanup</title>
 </head>
 
 <body>
-    <!-- header -->
+    <!-- Header -->
     <div class="header">
         <div class="container">
             <a href="index.html" onclick="apagarSession()">
@@ -222,19 +221,18 @@
         const confirmacao = confirm(`Gostaria de Avaliar com ${notaVar} estrelas?`)
 
         if (confirmacao == true) {
-            // Enviar a nota atual para o banco de dados
+            
             fetch("/nota/avaliar", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    usuarioServer: usuarioVar, // Enviando o id do usuario
-                    notaServer: notaVar // Enviando a nota atual
+                    usuarioServer: usuarioVar, 
+                    notaServer: notaVar 
                 }),
             }).then(response => {
                 if (response.ok) {
-                    // Se necessário, processar a resposta aqui
                     console.log('Nota cadastrada com sucesso!');
                 } else {
                     console.error('Erro ao cadastrar a nota.');
