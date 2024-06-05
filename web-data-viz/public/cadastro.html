@@ -181,6 +181,7 @@
         if (senhaVar.length < 8) {
             alert('A senha deve ter no mínimo 8 caracteres')
             senha.style.display = 'flex'
+            senhaConf.style.display = 'flex'
             valido = false
 
         } else {
@@ -201,7 +202,6 @@
         }
 
         if (valido == true) {
-            alert('funfou')
             nome.style.display = 'none'
             sobrenome.style.display = 'none'
             email.style.display = 'none'
@@ -227,6 +227,7 @@
                     console.log("resposta: ", resposta);
 
                     if (resposta.ok) {
+                        alert('Redirecionamento para página de login :D')
                         window.location = "./login.html";
                         limparFormulario();
 
