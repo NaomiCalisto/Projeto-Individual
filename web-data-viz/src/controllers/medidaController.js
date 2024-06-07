@@ -2,7 +2,7 @@ var medidaModel = require("../models/medidaModel");
 
 function buscarUltimasMedidasGlobal(req, res) {
 
-    const limite_linhas = 7;
+    const limite_linhas = 5;
 
     console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
 
@@ -21,7 +21,7 @@ function buscarUltimasMedidasGlobal(req, res) {
 
 function buscarUltimasMedidasUsuario(req, res) {
 
-    const limite_linhas = 7;
+    const limite_linhas = 5;
     const idUsuarioServer = req.query.idUsuarioServer
 
     console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
